@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gm, Ariiellus here!</title>
+    <style>
+        :root {
+            --bg-color: #fff;
+            --text-color: #000;
+            --border-color: #ccc;
+            --link-color: #007bff;
+            --quote-bg-color: #f9f9f9;
+            --quote-border-color: #ccc;
+            --toggle-bg: #d1c478;
+        }
+
+        body.dark-mode {
+            --bg-color: #212121;
+            --text-color: #fff;
+            --border-color: #444;
+            --link-color: #1E90FF;
+            --quote-bg-color: #1e1e1e;
+            --quote-border-color: #444;
+            --toggle-bg: #7a5fa8;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-picture img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        .contact-info {
+            max-width: 50%;
+        }
+
+        .contact-links a {
+            display: block;
+            color: var(--link-color);
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+        .section-title {
+            margin-top: 20px;
+            font-size: 1.5em;
+            padding-bottom: 5px;
+        }
+
+        .skills-interests {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul {
+          list-style-type: disc; 
+          padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        blockquote {
+            background-color: var(--quote-bg-color);
+            border-left: 5px solid var(--quote-border-color);
+            padding: 10px;
+            font-style: italic;
+        }
+
+        .section {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .skills, .interests {
+            width: 48%;
+        }
+
+        .theme-toggle-wrapper {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: absolute;  
+            padding-right: 20px;
+            top: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .theme-toggle {
+            width: 50px;
+            height: 25px;
+            background-color: var(--toggle-bg);
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle .toggle-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 4px;
+            transform: translateY(-50%);
+            transition: left 0.3s;
+        }
+
+        .theme-toggle.active .toggle-dot {
+            left: calc(100% - 24px);
+        }
+
+        .theme-icon {
+            font-size: 1.5em;
+        }
+
+        details summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <br></br>
+
+    <h1>gm, Ariiellus here!</h1>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-icon">☀️</span>
+        <div class="theme-toggle" id="theme-toggle">
+            <div class="toggle-dot"></div>
+        </div>
+        <span class="theme-icon">🌙</span>
+    </div>
+
+    <!-- Profile and Contact Section -->
+    <div class="profile-section">
+        <div class="profile-picture">
+            <img src="https://avatars.githubusercontent.com/u/103013980?s=400&u=4f5da1734890ef794f3ec462b1b1d8987356a7a3&v=4" alt="Ariiellus Profile Picture">
+        </div>
+        <div class="contact-info">
+            <h2>Contact</h2>
+            <p>You can find me as Ariiellus almost everywhere:</p>
+            <div class="contact-links">
+                <a href="https://x.com/Ariiellus" target="_blank">Twitter</a>
+                <a href="https://t.me/Ariiellus" target="_blank">Telegram (best way to connect)</a>
+                <a href="https://warpcast.com/ariiellus" target="_blank">Farcaster</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about section">
+        <h2 class="section-title">About Me</h2>
+        <blockquote>
+            🧑‍💻 My name is Ariel, people call me Ariiellus. I love to learn new stuff. Sometimes I research new developments in Ethereum. Sometimes I analyze mechanism designs around cryptoeconomics.
+        </blockquote>
+    </div>
+
+    <!-- Skills and Interests Section -->
+    <div class="skills-interests section">
+        <div class="skills">
+            <h2 class="section-title">Skills</h2>
+            <ul>
+                <li>🧠 MEV</li>
+                <li>📝 Cryptoeconomics</li>
+                <li>📊 DeFi Analyst</li>
+                <li>🕵️‍♂️ Privacy</li>
+                <li>🔬 Ethereum Research</li>
+            </ul>
+        </div>
+
+        <div class="interests">
+            <h2 class="section-title">Interests</h2>
+            <ul>
+                <li>♟️ Chess</li>
+                <li>🤸‍♂️ Calisthenics</li>
+                <li>🏃‍♂️ Running</li>
+                <li>⛰️ Mountaineering</li>
+                <li>🧠 Perpetual Learning</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- What I Do Section -->
+    <div class="what-i-do section">
+        <h2 class="section-title">What I Do</h2>
+        <p><a href="https://twitter.com/Research_Kairos" target="_blank"><strong>Kairos Research</strong> ⌛️</a><br>Co-founder, CEO, and Main Researcher. I lead my team to write amazing blogs. We are building a multiVM portfolio tracker.</p>
+        <p><a href="https://x.com/Ethereum_mexico" target="_blank"><strong>Ethereum Mexico</strong> 🇲🇽</a><br>Co-founder, former Community Lead, now I’m Finance Manager and find ways to incentivize the community to build in the Infinite Garden.</p>
+    </div>
+
+    <!-- Work Section (Toggleable) -->
+    <div class="work section">
+        <h2 class="section-title">My work</h2>
+
+        <!-- Talks -->
+        <details>
+            <summary>🎤 Talks</summary>
+            <h4>Recorded</h4>
+            <ul>
+                <li>Squad Staking. How to become a solo staker? - Ethereum México 2024</li>
+                <li>The Dark Forest at Wakah Chan. Ethereum México Side Event</li>
+                <li><a href="https://www.youtube.com/live/S85L6GNLYpE?si=RZelVeVtSV1WsUAu&t=69" target="_blank">The Dark Forest at ETHLatam Honduras 2024</a></li>
+                <li><a href="https://www.youtube.com/watch?v=Xcb6dH41E_0" target="_blank">Ethereum Endgame at ETHLatam Colombia 2022</a></li>
+                <li><a href="https://www.youtube.com/watch?v=2C3bKpC-Ng8" target="_blank">Ethereum The Merge Explained at The Merge Puebla Side Event</a></li>
+                <li><a href="https://www.youtube.com/watch?v=B3PnQ3C-bag" target="_blank">The Merge: From Zero to Hero</a></li>
+                <li><a href="https://www.youtube.com/watch?v=PWlvH9UDuHo" target="_blank">Layer 1 Panel 1</a></li>
+                <li><a href="https://www.youtube.com/watch?v=VNaOKA0TMyg" target="_blank">Layer 1 Panel 2</a></li>
+                <li><a href="https://www.youtube.com/watch?v=xQU7_9PqLMs&feature=youtu.be" target="_blank">What is Ethereum with Barra Crypto Podcast</a></li>
+            </ul>
+
+            <h4>Not Recorded</h4>
+            <ul>
+                <li><a href="https://x.com/openwebacademy_/status/1712253495112257873" target="_blank">Workshop about Attestations at Open Web House CDMX</a></li>
+                <li>How to use Hardware wallets</li>
+                <ul>
+                    <li><a href="https://x.com/ethereum_mexico/status/1646270739668926465" target="_blank">Event in Guadalajara</a></li>
+                    <li><a href="https://x.com/marcrypted/status/1639706147304407040" target="_blank">Event in CDMX</a></li>
+                    <li><a href="https://x.com/ethereum_mexico/status/1635628336453140480" target="_blank">Event in Puebla</a></li>
+                </ul>
+                <li><a href="https://x.com/marcrypted/status/1588368381975359489" target="_blank">Ethereum Roadmap with Crypto Epic Queen</a></li>
+            </ul>
+        </details>
+
+        <!-- Writings -->
+        <details>
+            <summary>✍️ Writings</summary>
+            <ul>
+                <li><a href="https://www.kairosresearch.xyz/insights/introduccion-a-los-based-rollups" target="_blank">Introducción a los Based Rollups</a></li>
+                <li><a href="https://www.kairosresearch.xyz/insights/introduccion-a-zkml" target="_blank">zkML: A Comprehensive Overview</a></li>
+                <li><a href="https://www.kairosresearch.xyz/insights/introduccion-a-las-cbdcs-panorama-actual" target="_blank">State of CBDCs</a></li>
+                <li><a href="https://drive.google.com/file/d/1rrHzU5jg_E1KnGDt_cm9UCJ_P9CaE_W8/view" target="_blank">State of Mev: Fundamentals</a></li>
+                <li><a href="https://www.kairosresearch.xyz/insights/introduccion-a-la-ejecucion-en-paralelo" target="_blank">Parallel Execution: A Comprehensive Overview</a></li>
+                <li><a href="https://www.kairosresearch.xyz/insights/eigenlayer-avs-a-comprehensive-overview" target="_blank">EigenLayer AVS: A Comprehensive Overview</a></li>
+                <li><a href="https://www.kairosresearch.xyz/insights/introduccion-a-la-data-availability" target="_blank">Data Availability: A Comprehensive Overview</a></li>
+                <li><a href="https://www.kairosresearch.xyz/insights/introduccion-al-mev" target="_blank">What is MEV?: A Comprehensive Overview</a></li>
+                <li><a href="https://www.kairosresearch.xyz/insights/gobernanza-en-la-era-digital" target="_blank">Governance in the Digital Era</a></li>
+                <li><a href="https://www.kairosresearch.xyz/insights/introduccion-a-los-tokenomics" target="_blank">Tokenomics 101: Fundamentals</a></li>
+                <li><a href="https://www.kairosresearch.xyz/insights/como-proteger-mi-frase-semilla" target="_blank">Shamir Scheme: How to use it?</a></li>
+                <li><a href="https://www.notion.so/6a8bc00d105a4edead570e46b0d34922?pvs=21" target="_blank">Ethereum Magicians Protocol Roadmap | Devcon VI</a></li>
+                <li><a href="https://mirror.xyz/0x4F9281cBF48E21d4c25795a3366daEe3E24624CF/nQc7J7pRCn-T4StbvoSCEO4E-7E-s8fEInPaUZ4NKQc" target="_blank">Ethereum Endgame</a></li>
+                <li><a href="https://mirror.xyz/0x4F9281cBF48E21d4c25795a3366daEe3E24624CF/mtiKR9pZaVSNK1GEV-ti8XQ-gDH85LqvbBGn7NQGgxs" target="_blank">Ethereum Scalability</a></li>
+                <li><a href="https://mirror.xyz/0x4F9281cBF48E21d4c25795a3366daEe3E24624CF/vSA357BsSTTWJBbO23ojTH-wSP2RBltCDP3Ibg7w5L8" target="_blank">What is Ethereum?</a></li>
+            </ul>
+        </details>
+
+        <!-- Spaces -->
+        <details>
+            <summary>🗣️ Spaces</summary>
+            <ul>
+                <li><a href="https://x.com/Ariiellus/status/1809610426700951624" target="_blank">Ethereum Roadmap</a></li>
+                <ul>
+                    <li><a href="https://x.com/ethereum_mexico/status/1787931265934483679" target="_blank">The Merge</a></li>
+                    <li><a href="https://x.com/ethereum_mexico/status/1790229600494092557" target="_blank">The Surge</a></li>
+                    <li><a href="https://x.com/ethereum_mexico/status/1793053294291558734" target="_blank">The Scourge</a></li>
+                    <li><a href="https://x.com/ethereum_mexico/status/1798127091445272805" target="_blank">The Verge</a></li>
+                    <li><a href="https://x.com/ethereum_mexico/status/1800662937264394691" target="_blank">The Purge</a></li>
+                    <li><a href="https://x.com/ethereum_mexico/status/1805736636250210393" target="_blank">The Splurge</a></li>
+                </ul>
+                <li>EigenLayer</li>
+                <ul>
+                    <li><a href="https://x.com/i/spaces/1ynJOyROBZyKR" target="_blank">$EIGEN</a></li>
+                    <li><a href="https://x.com/Ariiellus/status/1628559612445163521" target="_blank">What is EigenLayer?</a></li>
+                </ul>
+                <li><a href="https://www.youtube.com/watch?v=agd0VkG9sUU" target="_blank">What is Zero Knowledge</a></li>
+                <li>How Ethereum works</li>
+                <ul>
+                    <li><a href="https://open.spotify.com/episode/6sGJA1ONSfz2IuXAFANijy?si=22db578ea0b54b8b&nd=1&dlsi=b68614568f3b44e2" target="_blank">Next steps after Shapella</a></li>
+                    <li><a href="https://x.com/i/spaces/1lPKqBwAdZNGb" target="_blank">What is Shapella?</a></li>
+                    <li><a href="https://x.com/i/spaces/1gqxvyneQrQJB" target="_blank">Scaling Ethereum with L2s</a></li>
+                    <li><a href="https://open.spotify.com/episode/7zfYPn2LBgsTdtZepcnM3C?si=2Dn2DysISmC1qR3OyfCHpw&context=spotify%3Ashow%3A7cR4wr0TUZDm7jVmtO9Cza&nd=1&dlsi=e79e9b14228b4c11" target="_blank">Ethereum Fundamentals</a></li>
+                </ul>
+            </ul>
+        </details>
+    </div>
+</div>
+
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check local storage for theme preference
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.classList.add('active');
+    }
+
+    // Toggle theme on click
+    themeToggle.addEventListener('click', function () {
+        body.classList.toggle('dark-mode');
+        themeToggle.classList.toggle('active');
+        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+</script>
+
+</body>
+</html>
