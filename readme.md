@@ -6,7 +6,7 @@ Check out my personal website connected to my ENS!
 
 ## How to deploy to eth.limo?
 
-Easy! Follow the instructions below (I promise to detail it in the future, in the mean time use the [official guide](https://eth-limo.gitbook.io/documentation) from eth.limo ):
+Easy! Follow the instructions below:
 
 - Get and ENS name on the [ENS Manager App](https://app.ens.domains/)
 
@@ -17,3 +17,5 @@ Easy! Follow the instructions below (I promise to detail it in the future, in th
 - Update your ENS Content Records with the IPFS hash
 
 - Sign the transaction with and send your website to eth.limo
+
+I promise to detail it in the future, in the mean time use the [official guide](https://eth-limo.gitbook.io/documentation) from eth.limo)
