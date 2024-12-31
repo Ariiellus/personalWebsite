@@ -52,13 +52,6 @@
             position: relative;
         }
 
-        .profile-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
         .profile-picture img {
             width: 150px;
             border-radius: 50%;
@@ -81,7 +74,7 @@
             padding-bottom: 5px;
         }
 
-        .skills-interests {
+        .two-rows {
             display: flex;
             justify-content: space-between;
         }
@@ -120,7 +113,7 @@
             padding-bottom: 20px;
         }
 
-        .skills, .interests {
+        .list {
             width: 48%;
         }
 
@@ -177,6 +170,8 @@
     <br></br>
 
     <h1>gm, Ariiellus here!</h1>
+    <br></br>
+
 
     <!-- Theme Toggle Button -->
     <div class="theme-toggle-wrapper">
@@ -187,49 +182,62 @@
         <span class="theme-icon">🌙</span>
     </div>
 
-    <!-- Profile and Contact Section -->
-    <div class="profile-section">
-        <div class="profile-picture">
-            <img src="https://avatars.githubusercontent.com/u/103013980?s=400&u=4f5da1734890ef794f3ec462b1b1d8987356a7a3&v=4" alt="Ariiellus Profile Picture">
-        </div>
-        <div class="contact-info">
-            <h2>Contact</h2>
-            <p>You can find me as Ariiellus almost everywhere:</p>
-            <div class="contact-links">
-                <a href="https://x.com/Ariiellus" target="_blank">Twitter</a>
-                <a href="https://t.me/Ariiellus" target="_blank">Telegram (best way to connect)</a>
-                <a href="https://warpcast.com/ariiellus" target="_blank">Farcaster</a>
+        <!-- Skills and Interests Section -->
+        <div class="two-rows section">
+            <div class="profile-picture">
+                <img src="https://avatars.githubusercontent.com/u/103013980?s=400&u=4f5da1734890ef794f3ec462b1b1d8987356a7a3&v=4" alt="Ariiellus Profile Picture">
+                <h2>Contact</h2>
+                <div class="contact-links">
+                    <a href="https://x.com/Ariiellus" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    <a href="https://t.me/Ariiellus" target="_blank" rel="noopener noreferrer">Telegram</a>
+                    <a href="https://warpcast.com/ariiellus" target="_blank" rel="noopener noreferrer">Farcaster</a>
+                    <a href="https://github.com/ariiellus" target="_blank" rel="noopener noreferrer">Github</a>
+                </div>
             </div>
-            <p><strong>Delegate to me at:</strong></p>
-            <div class="contact-links">
-                <a href="https://vote.ether.fi/delegates/ariiellus.eth" target="_blank">EtherFi</a>
-                <!-- <a href="https://vote.obol.org/dao/delegate/ariiellus.eth" target="_blank">Obol Collective</a> -->
-            </div>
+    
+            <div class="list">
+                <br></br>
+                <br></br>
 
+                <h2 class="list">Delegate at:</h2>
+                <ul>
+                    <li><a href="https://vote.ether.fi/delegates/ariiellus.eth" target="_blank" rel="noopener noreferrer">EtherFi</a></li>
+                    <!-- Uncomment when applicable:
+                    <li><a href="https://vote.obol.org/dao/delegate/ariiellus.eth" target="_blank" rel="noopener noreferrer">Obol Collective</a></li> -->
+                </ul>
+
+
+                <h2 class="list">Operator at:</h2>
+                <ul>
+                    <li>Holesky CSM</li>
+                    <li>Lukso Mainnet</li>
+                </ul>
+
+            </div>
         </div>
-    </div>
 
     <!-- About Section -->
     <div class="about section">
         <h2 class="section-title">About Me</h2>
         <blockquote>
-            🧑‍💻 My name is Ariel, people call me Ariiellus. I love to learn new stuff. Sometimes I research new developments in Ethereum. Sometimes I analyze mechanism designs around cryptoeconomics.
+            🧑‍💻 My name is Ariel. I love to learn new stuff. Excited about new developments in Ethereum. Deeply interested in mechanism designs. On Chain Investigator.
         </blockquote>
-    </div
+    </div>
+
     <!-- Skills and Interests Section -->
-    <div class="skills-interests section">
-        <div class="skills">
+    <div class="two-rows section">
+        <div class="list">
             <h2 class="section-title">Skills</h2>
             <ul>
                 <li>🧠 MEV</li>
                 <li>📝 Cryptoeconomics</li>
                 <li>📊 DeFi Analyst</li>
-                <li>🕵️‍♂️ Privacy</li>
+                <li>🕵️‍♂️ Security</li>
                 <li>🔬 Ethereum Research</li>
             </ul>
         </div>
 
-        <div class="interests">
+        <div class="list">
             <h2 class="section-title">Interests</h2>
             <ul>
                 <li>♟️ Chess</li>
@@ -244,11 +252,12 @@
     <!-- What I Do Section -->
     <div class="what-i-do section">
         <h2 class="section-title">What I Do</h2>
-        <p><a href="https://twitter.com/Research_Kairos" target="_blank"><strong>Kairos Research</strong> ⌛️</a><br>Co-founder, CEO, and Main Researcher. I lead my team to write amazing blogs. We are building a multiVM portfolio tracker.</p>
+        <p><a href="https://twitter.com/Research_Kairos" target="_blank"><strong>Kairos Research</strong> ⌛️</a><br>Co-founder, CEO, and Main Researcher. I lead my team to write amazing blogs.</p>
         <p><a href="https://x.com/Ethereum_mexico" target="_blank"><strong>Ethereum Mexico</strong> 🇲🇽</a><br>Co-founder, former Community Lead, now I’m Finance Manager and find ways to incentivize the community to build in the Infinite Garden.</p>
     </div>
 
     <!-- Work Section (Toggleable) -->
+     
     <div class="work section">
         <h2 class="section-title">My work</h2>
 
@@ -257,8 +266,8 @@
             <summary>🎤 Talks</summary>
             <h4>Recorded</h4>
             <ul>
-                <li><a href= https://www.youtube.com/live/2omoEzSnf74?si=UkEnmAiYZLcKIMW_&t=15400> Squad Staking. How to become a solo staker? - Ethereum México 2024</a></li>
-                <li>The Dark Forest at Wakah Chan. Ethereum México Side Event</li>
+                <li><a href="https://x.com/Ariiellus/status/1872085234621329849" target="_blank">How to teach to buy Bitcoin in less than 5 minutes</a></li>
+                <li><a href="https://www.youtube.com/live/2omoEzSnf74?si=UkEnmAiYZLcKIMW_&t=15400" target="_blank"> Squad Staking. How to become a solo staker? - Ethereum México 2024</a></li>
                 <li><a href="https://www.youtube.com/live/S85L6GNLYpE?si=RZelVeVtSV1WsUAu&t=69" target="_blank">The Dark Forest at ETHLatam Honduras 2024</a></li>
                 <li><a href="https://www.youtube.com/watch?v=Xcb6dH41E_0" target="_blank">Ethereum Endgame at ETHLatam Colombia 2022</a></li>
                 <li><a href="https://www.youtube.com/watch?v=2C3bKpC-Ng8" target="_blank">Ethereum The Merge Explained at The Merge Puebla Side Event</a></li>
@@ -270,6 +279,7 @@
 
             <h4>Not Recorded</h4>
             <ul>
+                <li>The Dark Forest at Wakah Chan. Ethereum México Side Event</li>
                 <li><a href="https://x.com/openwebacademy_/status/1712253495112257873" target="_blank">Workshop about Attestations at Open Web House CDMX</a></li>
                 <li>How to use Hardware wallets</li>
                 <ul>
@@ -285,6 +295,9 @@
         <details>
             <summary>✍️ Writings</summary>
             <ul>
+                <li><a href="https://mirror.xyz/ariiellus.eth/J19TcjQ5mqe4wFVfWlWL3hLC_airjiMRn9ZSVT1iZvE">A No Code Journey</a></li>
+                <li><a href="https://mirror.xyz/ariiellus.eth/b6EwdI7QONxRJ_AuEVHuOgRoG15saWl4ybxuqpQLqGU">Inclusion is the Key: FOCIL</a></li>
+                <li><a href ="https://mirror.xyz/ariiellus.eth/T-7W2Gjgp8NGbxcWGoHUIWjRp_YZxAkGcSYWdM8lyBM">Key Takeaways from Devcon SEA</a></li>
                 <li><a href="https://www.kairosresearch.xyz/insights/introduccion-a-los-based-rollups" target="_blank">Introducción a los Based Rollups</a></li>
                 <li><a href="https://www.kairosresearch.xyz/insights/introduccion-a-zkml" target="_blank">zkML: A Comprehensive Overview</a></li>
                 <li><a href="https://www.kairosresearch.xyz/insights/introduccion-a-las-cbdcs-panorama-actual" target="_blank">State of CBDCs</a></li>
