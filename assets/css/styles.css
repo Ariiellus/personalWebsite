@@ -1,0 +1,225 @@
+/* styles.css */
+
+/* Light Mode Theme */
+:root {
+  --bg-color: #f6efe6;
+  --text-color: #2c2c2c;
+  --border-color: #b8a999;
+  --link-color: #7c4ed2;
+  --quote-bg-color: #e3d7c7;
+  --quote-border-color: #b8a999;
+  --toggle-bg: #7c4ed2;
+
+  /* Navbar */
+  --navbar-bg: #f6efe6;
+  --navbar-text: #3a3a3a;
+  --navbar-border: #b8a999;
+}
+
+/* Dark Mode Theme */
+body.dark-mode {
+  --bg-color: #2f3545;
+  --text-color: #f2f2f2;
+  --border-color: #606b7a;
+  --link-color: #d1c478;
+  --quote-bg-color: #424b61;
+  --quote-border-color: #606b7a;
+  --toggle-bg: #d1c478;
+
+  /* Navbar */
+  --navbar-bg: #2f3545;
+  --navbar-text: #f2f2f2;
+  --navbar-border: #3b4155;
+}
+
+/* General Styles */
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Navbar Styles */
+.profile-picture {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin: -10px;
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--navbar-bg);
+  transition: background-color 0.3s, color 0.3s;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.left-navbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+
+}
+
+.right-navbar {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 10px;
+}
+
+.navbar a {
+  color: var(--navbar-text);
+  text-decoration: none;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  background: var(--quote-bg-color);
+  border-radius: 5px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-toggle {
+  width: 50px;
+  height: 25px;
+  background-color: var(--toggle-bg);
+  border-radius: 25px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle .toggle-dot {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  transition: left 0.3s;
+}
+
+.theme-toggle.active .toggle-dot {
+  left: calc(100% - 24px);
+}
+
+.theme-icon {
+  font-size: 1.5em;
+}
+
+
+/* Home Styles */
+.date-posted {
+  color: #8f8e8e;
+}
+
+h3 {
+  color: #7c4ed2
+}
+
+body.dark-mode h3 {
+  color: #d1c478;
+}
+
+/* Icons Styles */
+.socials {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  display: inline-flex;
+  vertical-align: middle;
+  transition: filter 0.3s ease;
+  gap: 8px;
+}
+
+.calendar-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 3px;
+  transition: filter 0.3s ease;
+}
+
+/* Default (Light Mode) */
+.github-icon {
+  content: url("../assets/github-light.png");
+}
+
+.telegram-icon {
+  content: url("../assets/telegram-light.png");
+}
+
+.twitter-icon {
+  content: url("../assets/twitter-light.png");
+}
+
+.calendar-icon {
+  content: url("../assets/calendar-light.png");
+}
+
+/* When in Dark Mode */
+body.dark-mode .github-icon {
+  content: url("../assets/github-dark.png");
+}
+
+body.dark-mode .telegram-icon {
+  content: url("../assets/telegram-dark.png");
+}
+
+body.dark-mode .twitter-icon {
+  content: url("../assets/twitter-dark.png");
+}
+
+body.dark-mode .calendar-icon {
+  content: url("../assets/calendar-dark.png");
+}
+
+
+
+/* Writings Styles */
+
+/* About me Styles */
+.two-rows {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-title {
+  margin-top: 20px;
+  font-size: 1.5em;
+  padding-bottom: 5px;
+}
