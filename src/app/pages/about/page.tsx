@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { NextPage } from "next";
 
-const AriiellusWebsite: NextPage = () => {
+const AboutPage = () => {
   return (
     <main className="container mx-auto max-w-2xl px-4 py-10 bg-white rounded-lg shadow font-sans">
       {/* Main Two-Column Section */}
@@ -159,4 +158,4 @@ const AriiellusWebsite: NextPage = () => {
   );
 };
 
-export default AriiellusWebsite;
+export default AboutPage; 
