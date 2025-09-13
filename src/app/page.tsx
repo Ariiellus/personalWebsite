@@ -9,8 +9,10 @@ const AriiellusWebsite: NextPage = () => {
       <h1 className="text-2xl font-semibold pb-1">Hello, stranger</h1>
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center border-b border-gray-200 pb-4 min-w-0 overflow-x-auto">
         {/* Left: Profile photo */}
-        <div className="flex flex-col col-span-1 pt-10 
-                items-center justify-center text-left h-full min-w-0">
+        <div
+          className="flex flex-col col-span-1 pt-10 
+                items-center justify-center text-left h-full min-w-0"
+        >
           <Image
             src="/Fuffle1405.png"
             alt="Ariiellus Profile Picture"
