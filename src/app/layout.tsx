@@ -1,17 +1,17 @@
-import React from 'react'
-import './globals.css'
-import { Metadata } from 'next'
+import React from "react";
+import "./globals.css";
+import { Metadata } from "next";
 // import Navbar from './components/Navbar'
 
 export const metadata: Metadata = {
-  title: 'Ariiellus - Personal Website',
-  description: 'Ariiellus Website',
-}
+  title: "Ariiellus - Personal Website",
+  description: "Ariiellus Website",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -20,5 +20,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  )
-} 
+  );
+}

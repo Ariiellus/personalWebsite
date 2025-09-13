@@ -9,7 +9,8 @@ const AriiellusWebsite: NextPage = () => {
       <h1 className="text-2xl font-semibold pb-1">Hello, stranger</h1>
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center border-b border-gray-200 pb-4 min-w-0 overflow-x-auto">
         {/* Left: Profile photo */}
-        <div className="flex flex-col col-span-1 items-center justify-center text-left h-full min-w-0">
+        <div className="flex flex-col col-span-1 pt-10 
+                items-center justify-center text-left h-full min-w-0">
           <Image
             src="/Fuffle1405.png"
             alt="Ariiellus Profile Picture"
@@ -74,11 +75,13 @@ const AriiellusWebsite: NextPage = () => {
               this process we follow, this cycle we ride
             </a>
           </p>
-          <blockquote className="bg-gray-50 border-l-4 border-blue-200 p-4 italic my-4 rounded-lg shadow-sm max-w-prose">
+          <blockquote className="bg-gray-50 border-l-4 border-blue-200 p-4 italic my-4 rounded-lg shadow-sm max-w-prose text-justify">
             I'm Ariel! 🧑‍💻
             <br />
             <br />
-            Mechcanical Engineer, self-taught developer. My goal in life is simple, live a life I would love to remember. Spending the next 10 years building something to contribute to the human race. 🚀
+            Mechcanical Engineer, self-taught developer. My goal in life is
+            simple, live a life I would love to remember. Spending the next 10
+            years building something to contribute to the human race. 🚀
           </blockquote>
           <p className="my-4 max-w-prose">
             <a
@@ -186,7 +189,16 @@ const AriiellusWebsite: NextPage = () => {
             Previous contributions
           </h3>
           <p className="text-sm w-full text-left">
-            Currently I'm part of the <a href="https://x.com/eigentribe" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline focus-visible:ring focus-visible:ring-blue-600 focus:outline-none">EigenTribe Ambassador</a> program, but in the past I co-founded{" "}
+            Currently I'm part of the{" "}
+            <a
+              href="https://x.com/eigentribe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline focus-visible:ring focus-visible:ring-blue-600 focus:outline-none"
+            >
+              EigenTribe Ambassador
+            </a>{" "}
+            program,but in the past I co-founded{" "}
             <a
               href="https://x.com/ethereum_mexico"
               target="_blank"
@@ -206,7 +218,9 @@ const AriiellusWebsite: NextPage = () => {
       {/* Third Section: Interests and Hobbies*/}
       <section className="border-b border-gray-200 pb-4 mt-4">
         <h2 className="text-2xl font-semibold ">Interests</h2>
-        <p className="my-2 max-w-prose">Most of my time is spent in some of these topics:</p>
+        <p className="my-2 max-w-prose">
+          Most of my time is spent in some of these topics:
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center border-b border-gray-200 pb-4 min-w-0 overflow-x-auto">
           {/* Tech */}
