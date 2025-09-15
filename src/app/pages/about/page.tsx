@@ -11,9 +11,10 @@ const AboutPage = () => {
           <Image
             src="/Fuffle1405.png"
             alt="Ariiellus Profile Picture"
-            width={120}
-            height={120}
+            width={128}
+            height={128}
             className="w-32 h-32 rounded-full border-2 border-gray-200 shadow mb-4"
+            priority
           />
           <div className="w-full flex flex-col items-center sm:items-center">
             <h2 className="mt-2 text-lg font-semibold w-full text-left">Delegate at</h2>

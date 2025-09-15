@@ -19,6 +19,7 @@ const AriiellusWebsite: NextPage = () => {
             width={240}
             height={240}
             className="w-48 h-48 rounded-full border-2 border-gray-200 shadow mb-4"
+            priority
           />
 
           {/* Socials */}
@@ -34,6 +35,7 @@ const AriiellusWebsite: NextPage = () => {
                 width={20}
                 height={20}
                 className="w-4 h-4 hover:scale-110 transition-transform duration-300"
+                loading="lazy"
               />
             </a>
             <a
@@ -47,6 +49,7 @@ const AriiellusWebsite: NextPage = () => {
                 width={20}
                 height={20}
                 className="w-4 h-4 hover:scale-110 transition-transform duration-300"
+                loading="lazy"
               />
             </a>
             <a
@@ -60,6 +63,7 @@ const AriiellusWebsite: NextPage = () => {
                 width={20}
                 height={20}
                 className="w-4 h-4 hover:scale-110 transition-transform duration-300"
+                loading="lazy"
               />
             </a>
           </div>
@@ -200,7 +204,7 @@ const AriiellusWebsite: NextPage = () => {
             >
               EigenTribe Ambassador
             </a>{" "}
-            program,but in the past I co-founded{" "}
+            program, but in the past I co-founded{" "}
             <a
               href="https://x.com/ethereum_mexico"
               target="_blank"
@@ -212,7 +216,7 @@ const AriiellusWebsite: NextPage = () => {
             and during almost three years I was Community Lead. In addition,
             during my first two years I contributed to BanklessDAO as
             translator, hosted a study group for Token Engineering and worked as
-            researcher for Cryptoversidad.
+            researcher for Cryptoversidad. testing github actions
           </p>
         </div>
       </section>
