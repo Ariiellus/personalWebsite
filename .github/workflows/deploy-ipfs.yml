@@ -36,18 +36,24 @@ jobs:
       run: |
         # Setup SSH
         mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-        chmod 600 ~/.ssh/id_ed25519
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+        chmod 600 ~/.ssh/deploy_key
         ssh-keyscan -H $IPFS_SERVER_HOST >> ~/.ssh/known_hosts
         
+        # Test SSH connection first
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key $SSH_USER@$IPFS_SERVER_HOST "echo 'SSH works'"
+        
+        # Create deploy directory
+        ssh -i ~/.ssh/deploy_key $SSH_USER@$IPFS_SERVER_HOST "mkdir -p $DEPLOY_PATH"
+        
         # Copy build files to server
-        scp -r out/ $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
+        scp -i ~/.ssh/deploy_key -r out/ $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
         
         # Deploy to IPFS
-        ssh $SSH_USER@$IPFS_SERVER_HOST "
+        ssh -i ~/.ssh/deploy_key $SSH_USER@$IPFS_SERVER_HOST "
           cd $DEPLOY_PATH
           HASH=\$(ipfs add -r out/ -Q)
           echo \"New IPFS hash: \$HASH\"
-          ipfs name publish --key='$IPNS_KEY_NAME' \$HASH
+          ipfs name publish \$HASH
           echo \"Updated IPNS with hash: \$HASH\"
         "
