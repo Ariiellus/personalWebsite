@@ -216,7 +216,7 @@ const AriiellusWebsite: NextPage = () => {
             and during almost three years I was Community Lead. In addition,
             during my first two years I contributed to BanklessDAO as
             translator, hosted a study group for Token Engineering and worked as
-            researcher for Cryptoversidad. testing github actions
+            researcher for Cryptoversidad.
           </p>
         </div>
       </section>
