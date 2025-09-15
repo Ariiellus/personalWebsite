@@ -85,7 +85,7 @@ const AriiellusWebsite: NextPage = () => {
             I'm Ariel! 🧑‍💻
             <br />
             <br />
-            Mechcanical Engineer, self-taught developer. My goal in life is
+            Mechanical Engineer, self-taught developer. My goal in life is
             simple, live a life I would love to remember. Spending the next 10
             years building something to contribute to the human race. 🚀
           </blockquote>
@@ -130,7 +130,7 @@ const AriiellusWebsite: NextPage = () => {
             >
               newsletter
             </a>{" "}
-            has reached +500 subscribers during the first year. Ocassionally,{" "}
+            has reached +500 subscribers during the first year. Occasionally,{" "}
             <a
               href="https://mirror.xyz/ariiellus.eth"
               target="_blank"
@@ -190,7 +190,7 @@ const AriiellusWebsite: NextPage = () => {
           </p>
           <br />
 
-          {/* Previous contributions*/}
+          {/* Previous contributions */}
           <h3 className="text-lg font-semibold w-full text-left mt-4 sm:mt-0">
             Previous contributions
           </h3>
