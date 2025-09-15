@@ -31,33 +31,24 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         SSH_USER: ${{ secrets.SSH_USER }}
         IPFS_SERVER_HOST: ${{ secrets.IPFS_SERVER_HOST }}
+        SSH_PORT: ${{ secrets.SSH_PORT }}
         DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         IPNS_KEY_NAME: ${{ secrets.IPNS_KEY_NAME }}
       run: |
-        echo "Setting up SSH..."
+        # Setup SSH
         mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        ssh-keyscan -p $SSH_PORT -H $IPFS_SERVER_HOST >> ~/.ssh/known_hosts
         
-        # Write SSH key and ensure proper formatting
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
-        chmod 600 ~/.ssh/deploy_key
+        # Copy build files to server
+        scp -P $SSH_PORT -r out/ $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
         
-        # Check if key looks valid
-        echo "Checking SSH key format..."
-        head -1 ~/.ssh/deploy_key
-        
-        # Get host key
-        echo "Getting host key for $IPFS_SERVER_HOST..."
-        ssh-keyscan -H $IPFS_SERVER_HOST >> ~/.ssh/known_hosts || echo "Host key scan failed"
-        
-        # Test basic connectivity
-        echo "Testing connectivity to $IPFS_SERVER_HOST..."
-        ping -c 1 $IPFS_SERVER_HOST || echo "Ping failed - server might not be reachable from GitHub"
-        
-        # Try SSH with verbose output
-        echo "Testing SSH connection..."
-        ssh -v -o ConnectTimeout=10 -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key $SSH_USER@$IPFS_SERVER_HOST "echo 'SSH connection successful'" || {
-          echo "SSH failed. Checking if this is a network issue..."
-          echo "Your server IP: $IPFS_SERVER_HOST"
-          echo "SSH User: $SSH_USER"
-          exit 1
-        }
+        # Deploy to IPFS
+        ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
+          cd $DEPLOY_PATH
+          HASH=\$(ipfs add -r out/ -Q)
+          echo \"New IPFS hash: \$HASH\"
+          ipfs name publish --key='$IPNS_KEY_NAME' \$HASH
+          echo \"Updated IPNS with hash: \$HASH\"
+        "
