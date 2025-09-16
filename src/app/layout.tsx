@@ -5,14 +5,14 @@ import { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ariiellus.eth.limo'),
-  title: "Ariiellus - Ethereum Research & MEV Analyst",
-  description: "Personal website of Ariel (Ariiellus) - Ethereum researcher, MEV analyst, node operator, and co-founder of Kairos Research. Passionate about cryptoeconomics, security, and DeFi.",
+  title: "Ariiellus - lower-case r researcher",
+  description: "Personal website of Ariiellus - Ethereum researcher, MEV analyst, node operator, and co-founder of Kairos Research. Passionate about cryptoeconomics, security, and DeFi.",
   keywords: ["Ethereum", "MEV", "DeFi", "cryptoeconomics", "blockchain", "security", "node operator", "Kairos Research"],
   authors: [{ name: "Ariiellus", url: "https://ariiellus.eth.limo/" }],
   creator: "Ariiellus",
   openGraph: {
-    title: "Ariiellus - Ethereum Research & MEV Analyst",
-    description: "Personal website of Ariel (Ariiellus) - Ethereum researcher, MEV analyst, node operator, and co-founder of Kairos Research.",
+    title: "Ariiellus - lower-case r researcher",
+    description: "Personal website of Ariiellus - Ethereum researcher, MEV analyst, node operator, and co-founder of Kairos Research. Passionate about cryptoeconomics, security, and DeFi.",
     url: "https://ariiellus.eth.limo/",
     siteName: "Ariiellus",
     images: [
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Ariiellus - Ethereum Research & MEV Analyst",
-    description: "Personal website of Ariel (Ariiellus) - Ethereum researcher, MEV analyst, node operator, and co-founder of Kairos Research.",
+    title: "Ariiellus - lower-case r researcher",
+    description: "Personal website of Ariiellus - Ethereum researcher, MEV analyst, node operator, and co-founder of Kairos Research. Passionate about cryptoeconomics, security, and DeFi.",
     creator: "@Ariiellus",
     images: ["/Fuffle1405.png"],
   },
