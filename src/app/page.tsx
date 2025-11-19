@@ -1,9 +1,8 @@
 import React, { Suspense } from "react";
 import { NextPage } from "next";
-import PortfolioPage from "./pages/portfolio/page";
 import AboutPage from "./pages/about/page";
 import MentoringPage from "./pages/mentoring/page";
-import { SectionSkeleton, ProfileSkeleton } from "./components/LoadingSkeleton";
+import { ProfileSkeleton } from "./components/LoadingSkeleton";
 
 const AriiellusWebsite: NextPage = () => {
   return (
@@ -17,12 +16,6 @@ const AriiellusWebsite: NextPage = () => {
       <Suspense fallback={<div className="h-48 animate-pulse bg-gray-100 dark:bg-gray-800 rounded-lg my-8"></div>}>
         <MentoringPage />
       </Suspense>
-
-      <section id="portfolio" className="scroll-mt-20">
-        <Suspense fallback={<SectionSkeleton />}>
-          <PortfolioPage />
-        </Suspense>
-      </section>
 
       <footer className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-xs text-gray-500 dark:text-gray-400">
         <p className="mb-2">

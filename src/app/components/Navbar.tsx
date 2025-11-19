@@ -23,8 +23,7 @@ const Navbar = () => {
           <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-200 group-hover:w-full"></span>
         </a>
         <a
-          href="#portfolio"
-          onClick={(e) => scrollToSection(e, 'portfolio')}
+          href="/pages/portfolio"
           className="relative text-blue-600 dark:text-blue-400 font-semibold px-2 py-1 transition-colors group"
         >
           Portfolio
