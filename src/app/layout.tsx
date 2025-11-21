@@ -6,10 +6,10 @@ import Navbar from './components/Navbar'
 export const metadata: Metadata = {
   metadataBase: new URL('https://ariiellus.eth.limo'),
   title: {
-    default: "Ariiellus - Ethereum Researcher & Web3 Developer",
+    default: "Ariiellus - Low R case researcher",
     template: "%s | Ariiellus"
   },
-  description: "Personal website and portfolio of Ariiellus (Ariel) - Ethereum researcher, MEV analyst, Solidity developer, node operator, and host at Kairos Research. Offering free mentoring for Web3 developers. Passionate about cryptoeconomics, security, DeFi, and the Ethereum ecosystem.",
+  description: "Ethereum researcher, MEV analyst, and self-taught developer.",
   keywords: [
     "Ethereum", "MEV", "DeFi", "cryptoeconomics", "blockchain", "security",
     "node operator", "Kairos Research", "Solidity", "smart contracts",
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   creator: "Ariiellus",
   category: "Technology",
   openGraph: {
-    title: "Ariiellus - Ethereum Researcher & Web3 Developer",
-    description: "Ethereum researcher, MEV analyst, and Web3 developer offering free mentoring. Host at Kairos Research, node operator, and Solidity developer with experience in DeFi and smart contract security.",
+    title: "Ariiellus - Low R case researcher",
+    description: "Ethereum researcher, MEV analyst, and self-taught developer.",
     url: "https://ariiellus.eth.limo/",
     siteName: "Ariiellus Portfolio",
     images: [
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ariiellus - Ethereum Researcher & Web3 Developer",
-    description: "Ethereum researcher, MEV analyst, and Web3 developer. Offering free mentoring for aspiring blockchain developers. Host at Kairos Research.",
+    title: "Ariiellus - Low R case rese",
+    description: "Ethereum researcher, MEV analyst, and self-taught developer.",
     creator: "@Ariiellus",
     images: ["/Fuffle1405.png"],
   },

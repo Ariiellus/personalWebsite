@@ -13,9 +13,9 @@ const AriiellusWebsite: NextPage = () => {
         </Suspense>
       </section>
 
-      <Suspense fallback={<div className="h-48 animate-pulse bg-gray-100 dark:bg-gray-800 rounded-lg my-8"></div>}>
+      {/* <Suspense fallback={<div className="h-48 animate-pulse bg-gray-100 dark:bg-gray-800 rounded-lg my-8"></div>}>
         <MentoringPage />
-      </Suspense>
+      </Suspense> */}
 
       <footer className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-xs text-gray-500 dark:text-gray-400">
         <p className="mb-2">

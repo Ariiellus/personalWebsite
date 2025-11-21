@@ -194,7 +194,29 @@ const PortfolioPage = () => {
                   <h5 className="text-base font-bold text-gray-900 dark:text-white mb-1">
                     <a
                       className="text-blue-600 dark:text-blue-400 hover:underline focus-visible:ring focus:outline-none font-medium"
-                      href="https://github.com/Ariiellus/TuCausa"
+                      href="https://taikai.network/ethargentina/hackathons/tierra-de-buidlers-2025/projects/cmi6qw6us00bilzqrlnuxxfky/idea"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ramen Protocol
+                    </a>
+                    <a className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      {" "}
+                      | Ethereum Argentina
+                    </a>
+                  </h5>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    A Protocol that allows people to preserve cultural knowledge
+                    and pass them across generations. I contributed to this
+                    project with the architecture design and zk implementation.
+                  </p>
+                </div>
+
+                <div className="pl-4 border-l-4 border-blue-500 dark:border-blue-400">
+                  <h5 className="text-base font-bold text-gray-900 dark:text-white mb-1">
+                    <a
+                      className="text-blue-600 dark:text-blue-400 hover:underline focus-visible:ring focus:outline-none font-medium"
+                      href="https://taikai.network/ethargentina/hackathons/tierra-de-buidlers-2025/projects/cmi6qw6us00bilzqrlnuxxfky/idea"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
