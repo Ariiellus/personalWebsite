@@ -48,7 +48,7 @@ jobs:
         ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
           cd $DEPLOY_PATH
           HASH=\$(ipfs add -r out/ -Q)
-          echo \"New IPFS hash: \$HASH\"
-          ipfs name publish --key='$IPNS_KEY_NAME' \$HASH
-          echo \"Updated IPNS with hash: \$HASH\"
+          echo 'New IPFS hash: '\$HASH
+          ipfs name publish --key=$IPNS_KEY_NAME \$HASH
+          echo 'Updated IPNS with hash: '\$HASH
         "
