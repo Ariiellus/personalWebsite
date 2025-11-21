@@ -20,12 +20,28 @@ const workshops = [
         </a>
         .
       </>
+      
     ),
   },
   {
     title: "Collateralized Stablecoins",
-    url: "https://www.youtube.com/watch?v=UDdoyYURNz0",
+    url: "https://github.com/Ariiellus/Stablecoins-Oracle-Workshop",
     date: "April 22, 2025",
+    description: (
+      <>
+      Workshop for UNAM University on how to build a collateralized stablecoin with an oracle mechanism.
+      {" "}
+      <a
+        href="https://github.com/Ariiellus/Stablecoins-Oracle-Workshop"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:underline"
+      >
+        Code here
+      </a>
+      .
+    </>
+    ),
   },
   {
     title: "Decentralized Website",
@@ -38,82 +54,54 @@ const workshops = [
 
 const writings = [
   {
-    title: "A No Code Journey",
-    url: "https://mirror.xyz/ariiellus.eth/J19TcjQ5mqe4wFVfWlWL3hLC_airjiMRn9ZSVT1iZvE",
-    date: "March 10, 2025",
+    title: "Introduction to Preconfirmations",
+    url: "https://seedlatam.gitbook.io/seedlatam/avanzado-topicos/mev/preconfirmaciones-la-nueva-tarea-del-proposer",
+    date: "April 21, 2025",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Preconfirmations provide early transaction guarantees in Ethereum, improving user experience with near-instant confirmations, but raise concerns about MEV centralization and builder concentration risks.", 
+  },
+  {
+    title: "MEV Economics",
+    url: "https://seedlatam.gitbook.io/seedlatam/avanzado-topicos/mev/rol-de-mev-en-la-economia",
+    date: "April 14, 2025",
+    description:
+      "MEV allows validators to profit by manipulating transaction order across blockchains, creating issues like higher costs or censorship but is all MEV bad? Or is it just a tool that allow markets to work efficiently?",
+  },
+  {
+    title: "Introduction to MEV",
+    url: "https://seedlatam.gitbook.io/seedlatam/avanzado-topicos/mev/introduccion-el-papel-de-mev-en-blockchain",
+    date: "May 7, 2025",
+    description:
+      "MEV (Maximum Extractable Value) allows validators to profit by manipulating transaction order across blockchains, creating issues like higher costs, censorship, and centralization despite some beneficial uses.",
   },
   {
     title: "Inclusion is the Key: FOCIL",
     url: "https://mirror.xyz/ariiellus.eth/b6EwdI7QONxRJ_AuEVHuOgRoG15saWl4ybxuqpQLqGU",
-    date: "February 28, 2025",
+    date: "December 9, 2024",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "FOCIL introduces a committee of 16 validators to create inclusion lists, enhancing Ethereum's censorship resistance and credible neutrality without economic incentives.",
   },
   {
-    title: "Key Takeaways from Devcon SEA",
-    url: "https://mirror.xyz/ariiellus.eth/T-7W2Gjgp8NGbxcWGoHUIWjRp_YZxAkGcSYWdM8lyBM",
-    date: "January 15, 2025",
+    title: "State of MEV: A Comprehensive Overview",
+    url: "https://drive.google.com/file/d/1rrHzU5jg_E1KnGDt_cm9UCJ_P9CaE_W8/view?usp=sharing",
+    date: "May 2, 2024",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Introducción a los Based Rollups",
-    url: "https://www.kairosresearch.xyz/insights/introduccion-a-los-based-rollups",
-    date: "March 5, 2025",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "zkML: A Comprehensive Overview",
-    url: "https://www.kairosresearch.xyz/insights/introduccion-a-zkml",
-    date: "March 2, 2025",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "State of CBDCs",
-    url: "https://www.kairosresearch.xyz/insights/introduccion-a-las-cbdcs-panorama-actual",
-    date: "February 22, 2025",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "State of MEV: Fundamentals",
-    url: "https://drive.google.com/file/d/1rrHzU5jg_E1KnGDt_cm9UCJ_P9CaE_W8/view",
-    date: "February 10, 2025",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Parallel Execution: A Comprehensive Overview",
-    url: "https://www.kairosresearch.xyz/insights/introduccion-a-la-ejecucion-en-paralelo",
-    date: "January 30, 2025",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Maximum Value Extractable has been around since the beginning of Ethereum hurting users and benefiting a few. Despite efforts, the problem still exists but the access to it has been democratized",
   },
   {
     title: "EigenLayer AVS: A Comprehensive Overview",
     url: "https://www.kairosresearch.xyz/insights/eigenlayer-avs-a-comprehensive-overview",
-    date: "January 20, 2025",
+    date: "January 20, 2024",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Data Availability: A Comprehensive Overview",
-    url: "https://www.kairosresearch.xyz/insights/introduccion-a-la-data-availability",
-    date: "January 10, 2025",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
+      "AVS or Actively Validated Services are decentralized services built on Ethereum that provides custom verification mechanisms of off-chain operations.",
+  }
 ];
 
 const WritingsPage = () => {
   return (
     <>
       <main className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 bg-gray dark:bg-gray-900 rounded-lg shadow-lg font-sans transition-colors duration-300">
-          <h2 className="text-3xl font-bold mb-6">Writings</h2>
+          <h2 className="text-3xl font-bold mb-6">Tutorials</h2>
           <div className="space-y-8">
             {workshops.map((workshop, idx) => (
               <div key={idx} className="border-b border-gray-300 pb-4">
@@ -142,6 +130,7 @@ const WritingsPage = () => {
                 )}
               </div>
             ))}
+            <h2 className="text-3xl font-bold mb-6">Writings</h2>
             {writings.map((writing, idx) => (
               <div key={idx} className="border-b border-gray-300 pb-4">
                 <a

@@ -50,14 +50,14 @@ const PortfolioPage = () => {
                   has reached +500 subscribers during the first year.
                   Occasionally,{" "}
                   <a
-                    href="https://mirror.xyz/ariiellus.eth"
+                    href="https://ariiellus.eth.limo/pages/writings/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 dark:text-blue-400 hover:underline focus-visible:ring focus:outline-none font-medium"
                   >
                     I write blogs
                   </a>{" "}
-                  about MEV, DeFi and Ethereum Roadmap.
+                  about MEV, DeFi and the Ethereum Roadmap.
                 </p>
               </div>
 
