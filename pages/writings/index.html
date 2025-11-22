@@ -92,7 +92,7 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
           June 4, 2025
         </p>
         <p>
@@ -116,7 +116,7 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
           April 22, 2025
         </p>
         <p>
@@ -141,7 +141,7 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
           January 23, 2025
         </p>
         <p>Build your own decentralized website using ENS and IPFS.</p>
@@ -160,7 +160,7 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
           April 21, 2025
         </p>
         <p>
@@ -180,7 +180,7 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
           April 14, 2025
         </p>
         <p>
@@ -201,7 +201,7 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
           May 7, 2025
         </p>
         <p>
@@ -222,7 +222,7 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
           December 9, 2024
         </p>
         <p>
@@ -242,7 +242,7 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
           May 2, 2024
         </p>
         <p>
@@ -262,7 +262,7 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
           January 20, 2024
         </p>
         <p>
@@ -274,8 +274,23 @@
     </main>
 
     <script>
+      // Update logos based on color scheme
+      const updateLogos = () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        const logoImages = document.querySelectorAll("[data-logo]");
+        const basePath = "../../images/";
+        
+        logoImages.forEach((img) => {
+          const logoType = img.getAttribute("data-logo");
+          const suffix = isDark ? "dark" : "light";
+          img.src = `${basePath}${logoType}-${suffix}.png`;
+        });
+      };
+
+      // Dark mode toggle
       const toggleDarkMode = () => {
         document.documentElement.classList.toggle("dark");
+        updateLogos();
       };
 
       const toggleColorScheme = () => {
@@ -308,6 +323,7 @@
           toggle.checked = true;
           document.documentElement.classList.add("dark");
         }
+        updateLogos();
       };
       checkColorScheme();
     </script>

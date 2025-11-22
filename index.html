@@ -109,6 +109,7 @@
                   src="./images/twitter-light.png"
                   alt="X"
                   class="social-icon"
+                  data-logo="twitter"
                 />
               </a>
               <a
@@ -120,6 +121,7 @@
                   src="./images/telegram-light.png"
                   alt="Telegram"
                   class="social-icon"
+                  data-logo="telegram"
                 />
               </a>
               <a
@@ -131,6 +133,7 @@
                   src="./images/github-light.png"
                   alt="Github"
                   class="social-icon"
+                  data-logo="github"
                 />
               </a>
             </div>
@@ -301,9 +304,23 @@
     </main>
 
     <script>
+      // Update logos based on color scheme
+      const updateLogos = () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        const logoImages = document.querySelectorAll("[data-logo]");
+        const basePath = "./images/";
+        
+        logoImages.forEach((img) => {
+          const logoType = img.getAttribute("data-logo");
+          const suffix = isDark ? "dark" : "light";
+          img.src = `${basePath}${logoType}-${suffix}.png`;
+        });
+      };
+
       // Dark mode toggle
       const toggleDarkMode = () => {
         document.documentElement.classList.toggle("dark");
+        updateLogos();
       };
 
       const toggleColorScheme = () => {
@@ -338,6 +355,7 @@
           toggle.checked = true;
           document.documentElement.classList.add("dark");
         }
+        updateLogos();
       };
       checkColorScheme();
     </script>
