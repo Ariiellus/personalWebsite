@@ -16,6 +16,7 @@ jobs:
 
     - name: Prepare static files
       run: |
+        rm -rf out
         mkdir -p out
         cp index.html out/
         cp -r pages out/
