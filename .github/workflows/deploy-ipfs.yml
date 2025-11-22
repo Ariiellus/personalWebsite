@@ -18,7 +18,10 @@ jobs:
       run: |
         # Create deployment directory with static HTML files
         mkdir -p deploy
-        cp -r index.html pages/ css/ images/ deploy/
+        cp index.html deploy/
+        cp -r pages deploy/
+        cp -r css deploy/
+        cp -r images deploy/
 
     - name: Deploy to IPFS
       env:
