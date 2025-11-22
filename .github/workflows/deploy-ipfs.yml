@@ -12,7 +12,7 @@ jobs:
       url: https://ariiellus.eth.limo
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
 
     - name: Prepare static files
       run: |
@@ -37,8 +37,8 @@ jobs:
         chmod 600 ~/.ssh/id_ed25519
         ssh-keyscan -p $SSH_PORT -H $IPFS_SERVER_HOST >> ~/.ssh/known_hosts
         
-        # Clean and copy build files to server
-        ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "rm -rf $DEPLOY_PATH/out"
+        # Clean deploy path and copy build files to server
+        ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "rm -rf $DEPLOY_PATH/* && mkdir -p $DEPLOY_PATH"
         scp -P $SSH_PORT -r out $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
 
         # Deploy to IPFS
