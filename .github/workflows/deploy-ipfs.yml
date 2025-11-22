@@ -10,18 +10,17 @@ jobs:
     environment:
       name: production
       url: https://ariiellus.eth.limo
-
+    
     steps:
     - uses: actions/checkout@v4
 
     - name: Prepare static files
       run: |
-        # Create deployment directory with static HTML files
-        mkdir -p deploy
-        cp index.html deploy/
-        cp -r pages deploy/
-        cp -r css deploy/
-        cp -r images deploy/
+        mkdir -p out
+        cp index.html out/
+        cp -r pages out/
+        cp -r css out/
+        cp -r images out/
 
     - name: Deploy to IPFS
       env:
@@ -37,14 +36,15 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
         ssh-keyscan -p $SSH_PORT -H $IPFS_SERVER_HOST >> ~/.ssh/known_hosts
-
-        # Copy static files to server
-        scp -P $SSH_PORT -r deploy/* $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
+        
+        # Clean and copy build files to server
+        ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "rm -rf $DEPLOY_PATH/out"
+        scp -P $SSH_PORT -r out $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
 
         # Deploy to IPFS
         ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
           cd $DEPLOY_PATH
-          HASH=\$(ipfs add -r . -Q)
+          HASH=\$(ipfs add -r out -Q)
           echo 'New IPFS hash: '\$HASH
           ipfs pin add \$HASH
           echo 'Pinned: '\$HASH
