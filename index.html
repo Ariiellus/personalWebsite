@@ -36,15 +36,6 @@
     <meta name="twitter:image" content="./images/Fuffle1405.png" />
 
     <link rel="stylesheet" type="text/css" href="./css/main.css" />
-
-    <style>
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #111827;
-          color: white;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- Navigation -->
@@ -100,41 +91,17 @@
               class="profile-img"
             />
             <div class="social-links">
-              <a
-                href="https://x.com/Ariiellus"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./images/twitter-light.png"
-                  alt="X"
-                  class="social-icon"
-                  data-logo="twitter"
-                />
+              <a href="https://x.com/Ariiellus" target="_blank" rel="noopener noreferrer">
+                <img src="./images/twitter-light.png" alt="X" class="social-icon" data-logo="twitter" />
+                <img src="./images/twitter-dark.png" alt="X" class="social-icon" data-logo="twitter" />
               </a>
-              <a
-                href="https://t.me/Ariiellus"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./images/telegram-light.png"
-                  alt="Telegram"
-                  class="social-icon"
-                  data-logo="telegram"
-                />
+              <a href="https://t.me/Ariiellus" target="_blank" rel="noopener noreferrer">
+                <img src="./images/telegram-light.png" alt="Telegram" class="social-icon" data-logo="telegram" />
+                <img src="./images/telegram-dark.png" alt="Telegram" class="social-icon" data-logo="telegram" />
               </a>
-              <a
-                href="https://github.com/ariiellus"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./images/github-light.png"
-                  alt="Github"
-                  class="social-icon"
-                  data-logo="github"
-                />
+              <a href="https://github.com/ariiellus" target="_blank" rel="noopener noreferrer">
+                <img src="./images/github-light.png" alt="Github" class="social-icon" data-logo="github" />
+                <img src="./images/github-dark.png" alt="Github" class="social-icon" data-logo="github" />
               </a>
             </div>
           </div>
@@ -302,62 +269,11 @@
         <p class="text-muted">© 2025 Ariiellus. All rights reserved.</p>
       </footer>
     </main>
-
     <script>
-      // Update logos based on color scheme
-      const updateLogos = () => {
-        const isDark = document.documentElement.classList.contains("dark");
-        const logoImages = document.querySelectorAll("[data-logo]");
-        const basePath = "./images/";
-        
-        logoImages.forEach((img) => {
-          const logoType = img.getAttribute("data-logo");
-          const suffix = isDark ? "dark" : "light";
-          img.src = `${basePath}${logoType}-${suffix}.png`;
-        });
-      };
-
-      // Dark mode toggle
-      const toggleDarkMode = () => {
-        document.documentElement.classList.toggle("dark");
-        updateLogos();
-      };
-
-      const toggleColorScheme = () => {
-        const colorScheme = localStorage.getItem("colorScheme");
-        if (colorScheme === "light")
-          localStorage.setItem("colorScheme", "dark");
-        else localStorage.setItem("colorScheme", "light");
-      };
-
-      const toggle = document.querySelector(
-        '#color-mode-switch input[type="checkbox"]'
-      );
-      if (toggle)
-        toggle.onclick = () => {
-          toggleDarkMode();
-          toggleColorScheme();
-        };
-
-      // Check for color scheme on init
-      const checkColorScheme = () => {
-        const colorScheme = localStorage.getItem("colorScheme");
-        if (colorScheme === null || colorScheme === undefined) {
-          // Default based on system preference
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            localStorage.setItem("colorScheme", "dark");
-            document.documentElement.classList.add("dark");
-            toggle.checked = true;
-          } else {
-            localStorage.setItem("colorScheme", "light");
-          }
-        } else if (colorScheme === "dark") {
-          toggle.checked = true;
-          document.documentElement.classList.add("dark");
-        }
-        updateLogos();
-      };
-      checkColorScheme();
+      const t=document.getElementById('switch');
+      const s=localStorage.getItem('darkMode');
+      if(s==='1')t.checked=true;
+      t.onchange=()=>localStorage.setItem('darkMode',t.checked?'1':'0');
     </script>
   </body>
 </html>

@@ -1,9 +1,10 @@
 /* Minimal CSS for IPFS-compatible static site
+   - Pure CSS (no JavaScript required)
    - Responsive (desktop & mobile)
-   - Supports manual toggle (.dark) + prefers-color-scheme
+   - Dark mode toggle using CSS :has() selector
    - Based on Tailwind styling from Next.js version */
 
-/* ---------- Design tokens ---------- */
+/* ---------- Design tokens (Light mode default) ---------- */
 :root {
   --color-bg: #f9fafb;
   --color-bg-card: #ffffff;
@@ -22,8 +23,8 @@
   --color-blockquote-border: #3b82f6;
 }
 
-/* Dark mode toggled with <html class="dark"> */
-html.dark {
+/* Pure CSS dark mode using :has() selector - when checkbox #switch is checked */
+body:has(#switch:checked) {
   --color-bg: #111827;
   --color-bg-card: #1f2937;
   --color-text: #ffffff;
@@ -39,9 +40,9 @@ html.dark {
   --color-blockquote-border: #60a5fa;
 }
 
-/* Fallback for users that prefer a dark scheme */
+/* Fallback for users that prefer a dark scheme and toggle is unchecked */
 @media (prefers-color-scheme: dark) {
-  :root:not(.light) {
+  body:not(:has(#switch)) {
     --color-bg: #111827;
     --color-bg-card: #1f2937;
     --color-text: #ffffff;
@@ -182,28 +183,34 @@ main {
   text-decoration: none;
 }
 
-/* ---------- Color mode switch ---------- */
+/* ---------- Pure CSS Color mode switch ---------- */
 #color-mode-switch {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
+  gap: 4px;
 }
 
+/* Sun and Moon icons */
 #color-mode-switch svg {
   width: 24px;
   height: 24px;
   margin: 0 4px;
   stroke: var(--color-text);
+  transition: opacity 0.3s;
 }
 
+/* Hide checkbox but keep it functional */
 #color-mode-switch input[type=checkbox] {
   height: 0;
   width: 0;
   margin: 0;
   visibility: hidden;
+  position: absolute;
 }
 
+/* Toggle switch label */
 #color-mode-switch label {
   cursor: pointer;
   text-indent: -9999px;
@@ -214,8 +221,10 @@ main {
   display: block;
   position: relative;
   margin: 0;
+  transition: background 0.3s;
 }
 
+/* Toggle switch button */
 #color-mode-switch label:after {
   content: '';
   position: absolute;
@@ -228,9 +237,27 @@ main {
   transition: 0.3s;
 }
 
+/* Move toggle when checked */
 #color-mode-switch input:checked + label:after {
   left: calc(100% - 3px);
   transform: translateX(-100%);
+}
+
+/* Optional: fade sun/moon icons based on mode */
+body:has(#switch:checked) #color-mode-switch svg:first-child {
+  opacity: 0.5;
+}
+
+body:has(#switch:checked) #color-mode-switch svg:last-child {
+  opacity: 1;
+}
+
+body:not(:has(#switch:checked)) #color-mode-switch svg:first-child {
+  opacity: 1;
+}
+
+body:not(:has(#switch:checked)) #color-mode-switch svg:last-child {
+  opacity: 0.5;
 }
 
 /* ---------- Sections ---------- */
@@ -304,11 +331,43 @@ section {
   width: 1.5rem;
   height: 1.5rem;
   transition: transform 0.3s;
+  fill: var(--color-text);
 }
 
 .social-icon:hover {
   transform: scale(1.1);
 }
+
+/* Hide dark images in light mode, show light images */
+body:not(:has(#switch:checked)) img[data-logo][src*="-dark"] {
+  display: none !important;
+}
+
+body:not(:has(#switch:checked)) img[data-logo][src*="-light"] {
+  display: inline-block !important;
+}
+
+/* Hide light images in dark mode, show dark images */
+body:has(#switch:checked) img[data-logo][src*="-light"] {
+  display: none !important;
+}
+
+body:has(#switch:checked) img[data-logo][src*="-dark"] {
+  display: inline-block !important;
+}
+
+/* Default to light mode for systems without :has() support */
+@media (prefers-color-scheme: dark) {
+  body:not(:has(#switch)) img[data-logo][src*="-light"] {
+    display: none !important;
+  }
+
+  body:not(:has(#switch)) img[data-logo][src*="-dark"] {
+    display: inline-block !important;
+  }
+}
+
+/* Calendar icon for writings page - handled by .writing-meta img below */
 
 .profile-bio {
   display: flex;

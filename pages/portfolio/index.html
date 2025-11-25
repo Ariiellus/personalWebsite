@@ -27,15 +27,6 @@
     <meta name="twitter:creator" content="@Ariiellus" />
 
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-
-    <style>
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #111827;
-          color: white;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- Navigation -->
@@ -371,44 +362,11 @@
         </section>
       </div>
     </main>
-
     <script>
-      const toggleDarkMode = () => {
-        document.documentElement.classList.toggle("dark");
-      };
-
-      const toggleColorScheme = () => {
-        const colorScheme = localStorage.getItem("colorScheme");
-        if (colorScheme === "light")
-          localStorage.setItem("colorScheme", "dark");
-        else localStorage.setItem("colorScheme", "light");
-      };
-
-      const toggle = document.querySelector(
-        '#color-mode-switch input[type="checkbox"]'
-      );
-      if (toggle)
-        toggle.onclick = () => {
-          toggleDarkMode();
-          toggleColorScheme();
-        };
-
-      const checkColorScheme = () => {
-        const colorScheme = localStorage.getItem("colorScheme");
-        if (colorScheme === null || colorScheme === undefined) {
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            localStorage.setItem("colorScheme", "dark");
-            document.documentElement.classList.add("dark");
-            toggle.checked = true;
-          } else {
-            localStorage.setItem("colorScheme", "light");
-          }
-        } else if (colorScheme === "dark") {
-          toggle.checked = true;
-          document.documentElement.classList.add("dark");
-        }
-      };
-      checkColorScheme();
+      const t=document.getElementById('switch');
+      const s=localStorage.getItem('darkMode');
+      if(s==='1')t.checked=true;
+      t.onchange=()=>localStorage.setItem('darkMode',t.checked?'1':'0');
     </script>
   </body>
 </html>

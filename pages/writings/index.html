@@ -27,15 +27,6 @@
     <meta name="twitter:creator" content="@Ariiellus" />
 
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-
-    <style>
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #111827;
-          color: white;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- Navigation -->
@@ -92,7 +83,8 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
+          <img src="../../images/calendar-dark.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
           June 4, 2025
         </p>
         <p>
@@ -116,7 +108,8 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
+          <img src="../../images/calendar-dark.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
           April 22, 2025
         </p>
         <p>
@@ -141,7 +134,8 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
+          <img src="../../images/calendar-dark.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
           January 23, 2025
         </p>
         <p>Build your own decentralized website using ENS and IPFS.</p>
@@ -160,7 +154,8 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
+          <img src="../../images/calendar-dark.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
           April 21, 2025
         </p>
         <p>
@@ -180,7 +175,8 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
+          <img src="../../images/calendar-dark.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
           April 14, 2025
         </p>
         <p>
@@ -201,7 +197,8 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
+          <img src="../../images/calendar-dark.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
           May 7, 2025
         </p>
         <p>
@@ -222,7 +219,8 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
+          <img src="../../images/calendar-dark.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
           December 9, 2024
         </p>
         <p>
@@ -242,7 +240,8 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
+          <img src="../../images/calendar-dark.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
           May 2, 2024
         </p>
         <p>
@@ -262,7 +261,8 @@
           >
         </h3>
         <p class="writing-meta">
-          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" />
+          <img src="../../images/calendar-light.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
+          <img src="../../images/calendar-dark.png" alt="calendar icon" data-logo="calendar" class="calendar-icon" />
           January 20, 2024
         </p>
         <p>
@@ -272,60 +272,11 @@
         </p>
       </div>
     </main>
-
     <script>
-      // Update logos based on color scheme
-      const updateLogos = () => {
-        const isDark = document.documentElement.classList.contains("dark");
-        const logoImages = document.querySelectorAll("[data-logo]");
-        const basePath = "../../images/";
-        
-        logoImages.forEach((img) => {
-          const logoType = img.getAttribute("data-logo");
-          const suffix = isDark ? "dark" : "light";
-          img.src = `${basePath}${logoType}-${suffix}.png`;
-        });
-      };
-
-      // Dark mode toggle
-      const toggleDarkMode = () => {
-        document.documentElement.classList.toggle("dark");
-        updateLogos();
-      };
-
-      const toggleColorScheme = () => {
-        const colorScheme = localStorage.getItem("colorScheme");
-        if (colorScheme === "light")
-          localStorage.setItem("colorScheme", "dark");
-        else localStorage.setItem("colorScheme", "light");
-      };
-
-      const toggle = document.querySelector(
-        '#color-mode-switch input[type="checkbox"]'
-      );
-      if (toggle)
-        toggle.onclick = () => {
-          toggleDarkMode();
-          toggleColorScheme();
-        };
-
-      const checkColorScheme = () => {
-        const colorScheme = localStorage.getItem("colorScheme");
-        if (colorScheme === null || colorScheme === undefined) {
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            localStorage.setItem("colorScheme", "dark");
-            document.documentElement.classList.add("dark");
-            toggle.checked = true;
-          } else {
-            localStorage.setItem("colorScheme", "light");
-          }
-        } else if (colorScheme === "dark") {
-          toggle.checked = true;
-          document.documentElement.classList.add("dark");
-        }
-        updateLogos();
-      };
-      checkColorScheme();
+      const t=document.getElementById('switch');
+      const s=localStorage.getItem('darkMode');
+      if(s==='1')t.checked=true;
+      t.onchange=()=>localStorage.setItem('darkMode',t.checked?'1':'0');
     </script>
   </body>
 </html>
