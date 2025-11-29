@@ -367,7 +367,16 @@ body:has(#switch:checked) img[data-logo][src*="-dark"] {
   }
 }
 
-/* Calendar icon for writings page - handled by .writing-meta img below */
+/* Calendar icon for writings page - inline SVG styling */
+.writing-meta svg.calendar-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  fill: var(--color-text-muted);
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
 
 .profile-bio {
   display: flex;
