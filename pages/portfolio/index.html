@@ -4,6 +4,8 @@
     <base href="../../" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="./css/main.css" as="style" />
+    <link rel="preload" href="./images/Fuffle1405.png" as="image" />
     <title>Portfolio | Ariiellus</title>
     <meta
       name="description"
@@ -21,6 +23,19 @@
       content="https://ariiellus.eth.limo/pages/portfolio/"
     />
     <meta property="og:image" content="./images/Fuffle1405.png" />
+
+    <!-- Critical CSS inlined for faster first paint -->
+    <style>
+      :root{--color-bg:#f9fafb;--color-bg-card:#fff;--color-text:#1f2937;--color-text-muted:#6b7280;--color-anchor:#2563eb;--color-anchor-hover:#1d4ed8;--color-heading:#111827;--color-divider:#e5e7eb;--color-border:#e5e7eb;--color-shadow:rgba(0,0,0,.1);--color-gradient-from:#2563eb;--color-gradient-to:#4f46e5}
+      body:has(#switch:checked){--color-bg:#111827;--color-bg-card:#1f2937;--color-text:#fff;--color-text-muted:#9ca3af;--color-anchor:#60a5fa;--color-anchor-hover:#93c5fd;--color-heading:#fff;--color-divider:#374151;--color-border:#374151;--color-shadow:rgba(0,0,0,.3)}
+      @media (prefers-color-scheme:dark){body:not(:has(#switch)){--color-bg:#111827;--color-bg-card:#1f2937;--color-text:#fff;--color-text-muted:#9ca3af;--color-anchor:#60a5fa;--color-anchor-hover:#93c5fd;--color-heading:#fff;--color-divider:#374151;--color-border:#374151;--color-shadow:rgba(0,0,0,.3)}}
+      *{box-sizing:border-box}
+      body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;background:var(--color-bg);color:var(--color-text);min-height:100vh;transition:background-color .3s,color .3s}
+      a{color:var(--color-anchor);text-decoration:none;transition:color .2s}
+      .container{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
+      .navbar{background:var(--color-bg-card);border-bottom:1px solid var(--color-divider);position:sticky;top:0;z-index:100;box-shadow:0 2px 4px var(--color-shadow)}
+      .nav-links{display:flex;gap:2rem;padding:1rem 2rem;align-items:center}
+    </style>
 
     <link rel="stylesheet" type="text/css" href="./css/main.css" />
   </head>
