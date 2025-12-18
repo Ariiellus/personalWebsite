@@ -43,6 +43,16 @@ jobs:
 
         # Deploy to IPFS
         ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
+          # Ensure IPFS service is running
+          echo 'Checking IPFS service status...'
+          if ! sudo systemctl is-active --quiet ipfs; then
+            echo 'Starting IPFS service...'
+            sudo systemctl start ipfs
+            sleep 2
+          else
+            echo 'IPFS service is already running'
+          fi
+          
           cd $DEPLOY_PATH
           
           # Get the old IPNS hash before publishing (if any)
