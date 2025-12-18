@@ -48,6 +48,6 @@ jobs:
           echo 'New IPFS hash: '\$HASH
           ipfs pin add \$HASH
           echo 'Pinned: '\$HASH
-          ipfs name publish --key=$IPNS_KEY_NAME \$HASH
+          ipfs name publish --allow-offline --key=$IPNS_KEY_NAME \$HASH
           echo 'Updated IPNS with hash: '\$HASH
         "
