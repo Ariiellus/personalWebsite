@@ -22,6 +22,7 @@ jobs:
         cp -r pages deploy/
         cp -r css deploy/
         cp -r images deploy/
+        cp -r general deploy/
 
     - name: Deploy to IPFS
       env:
@@ -43,40 +44,11 @@ jobs:
 
         # Deploy to IPFS
         ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
-          # Ensure IPFS service is running
-          echo 'Checking IPFS service status...'
-          if ! sudo systemctl is-active --quiet ipfs; then
-            echo 'Starting IPFS service...'
-            sudo systemctl start ipfs
-            sleep 2
-          else
-            echo 'IPFS service is already running'
-          fi
-          
           cd $DEPLOY_PATH
-          
-          # Get the old IPNS hash before publishing (if any)
-          IPNS_KEY_ID=\$(ipfs key list -l | grep \"^$IPNS_KEY_NAME\" | cut -d' ' -f1)
-          OLD_HASH=\"\"
-          if [ -n \"\$IPNS_KEY_ID\" ]; then
-            OLD_HASH=\$(ipfs name resolve /ipns/\$IPNS_KEY_ID 2>/dev/null | sed 's|/ipfs/||' || echo '')
-            if [ -n \"\$OLD_HASH\" ]; then
-              echo 'Current IPNS hash (to be replaced): '\$OLD_HASH
-            fi
-          fi
-          
           HASH=\$(ipfs add -r . -Q)
           echo 'New IPFS hash: '\$HASH
           ipfs pin add \$HASH
           echo 'Pinned: '\$HASH
           ipfs name publish --key=$IPNS_KEY_NAME \$HASH
           echo 'Updated IPNS with hash: '\$HASH
-          
-          # Cleanup: Only unpin the old hash from THIS project (if different from new hash)
-          if [ -n \"\$OLD_HASH\" ] && [ \"\$OLD_HASH\" != \"\$HASH\" ]; then
-            echo 'Unpinning previous deployment hash: '\$OLD_HASH
-            ipfs pin rm \$OLD_HASH 2>/dev/null || echo 'Note: Old hash was not pinned or already removed'
-          else
-            echo 'No old hash to clean up (or same as new hash)'
-          fi
         "
