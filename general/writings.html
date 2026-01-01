@@ -20,7 +20,10 @@
       content="https://ariiellus.eth.limo/general/writings.html"
     />
     <meta property="og:site_name" content="Ariiellus Portfolio" />
-    <meta property="og:image" content="https://ariiellus.eth.limo/images/Fuffle1405.png" />
+    <meta
+      property="og:image"
+      content="https://ariiellus.eth.limo/images/Fuffle1405.png"
+    />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card -->
@@ -31,7 +34,10 @@
       content="Tutorials and writings by Ariiellus on MEV, DeFi, and Ethereum."
     />
     <meta name="twitter:creator" content="@Ariiellus" />
-    <meta name="twitter:image" content="https://ariiellus.eth.limo/images/Fuffle1405.png" />
+    <meta
+      name="twitter:image"
+      content="https://ariiellus.eth.limo/images/Fuffle1405.png"
+    />
 
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
   </head>
@@ -77,6 +83,14 @@
     </nav>
 
     <main class="container">
+      <div class="writing-item">
+        <p>
+          I started <a href="./essays.html">writing down my thoughts</a> as a
+          medium to increase my clarity in different areas that interest me.
+          <br />
+          I hope you find them useful.
+        </p>
+      </div>
       <!-- Tutorials Section -->
       <h2>Tutorials</h2>
 
@@ -89,9 +103,7 @@
             >Hello World AVS</a
           >
         </h3>
-        <p class="writing-meta">
-          🗓️ June 4, 2025
-        </p>
+        <p class="writing-meta">🗓️ June 4, 2025</p>
         <p>
           A comprehensive overview of how EigenLayer AVS works and
           <a
@@ -112,9 +124,7 @@
             >Collateralized Stablecoins</a
           >
         </h3>
-        <p class="writing-meta">
-          🗓️ April 22, 2025
-        </p>
+        <p class="writing-meta">🗓️ April 22, 2025</p>
         <p>
           Workshop for UNAM University on how to build a collateralized
           stablecoin with an oracle mechanism.
@@ -136,9 +146,7 @@
             >Decentralized Website</a
           >
         </h3>
-        <p class="writing-meta">
-          🗓️ January 23, 2025
-        </p>
+        <p class="writing-meta">🗓️ January 23, 2025</p>
         <p>Build your own decentralized website using ENS and IPFS.</p>
       </div>
 
@@ -154,9 +162,7 @@
             >Introduction to Preconfirmations</a
           >
         </h3>
-        <p class="writing-meta">
-          🗓️ April 21, 2025
-        </p>
+        <p class="writing-meta">🗓️ April 21, 2025</p>
         <p>
           Preconfirmations provide early transaction guarantees in Ethereum,
           improving user experience with near-instant confirmations, but raise
@@ -173,9 +179,7 @@
             >MEV Economics</a
           >
         </h3>
-        <p class="writing-meta">
-          🗓️ April 14, 2025
-        </p>
+        <p class="writing-meta">🗓️ April 14, 2025</p>
         <p>
           MEV allows validators to profit by manipulating transaction order
           across blockchains, creating issues like higher costs or censorship
@@ -193,9 +197,7 @@
             >Introduction to MEV</a
           >
         </h3>
-        <p class="writing-meta">
-          🗓️ May 7, 2025
-        </p>
+        <p class="writing-meta">🗓️ May 7, 2025</p>
         <p>
           MEV (Maximum Extractable Value) allows validators to profit by
           manipulating transaction order across blockchains, creating issues
@@ -213,9 +215,7 @@
             >Inclusion is the Key: FOCIL</a
           >
         </h3>
-        <p class="writing-meta">
-          🗓️ December 9, 2024
-        </p>
+        <p class="writing-meta">🗓️ December 9, 2024</p>
         <p>
           FOCIL introduces a committee of 16 validators to create inclusion
           lists, enhancing Ethereum's censorship resistance and credible
@@ -232,9 +232,7 @@
             >State of MEV: A Comprehensive Overview</a
           >
         </h3>
-        <p class="writing-meta">
-          🗓️ May 2, 2024
-        </p>
+        <p class="writing-meta">🗓️ May 2, 2024</p>
         <p>
           Maximum Value Extractable has been around since the beginning of
           Ethereum hurting users and benefiting a few. Despite efforts, the
@@ -251,9 +249,7 @@
             >EigenLayer AVS: A Comprehensive Overview</a
           >
         </h3>
-        <p class="writing-meta">
-          🗓️ January 20, 2024
-        </p>
+        <p class="writing-meta">🗓️ January 20, 2024</p>
         <p>
           AVS or Actively Validated Services are decentralized services built on
           Ethereum that provides custom verification mechanisms of off-chain
@@ -262,10 +258,11 @@
       </div>
     </main>
     <script>
-      const t=document.getElementById('switch');
-      const s=localStorage.getItem('darkMode');
-      if(s==='1')t.checked=true;
-      t.onchange=()=>localStorage.setItem('darkMode',t.checked?'1':'0');
+      const t = document.getElementById("switch");
+      const s = localStorage.getItem("darkMode");
+      if (s === "1") t.checked = true;
+      t.onchange = () =>
+        localStorage.setItem("darkMode", t.checked ? "1" : "0");
     </script>
   </body>
 </html>

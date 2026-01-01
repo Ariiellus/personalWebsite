@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reflections on 2025 | Ariiellus</title>
+    <meta
+      name="description"
+      content="Reflections on 2025."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Reflections on 2025 | Ariiellus" />
+    <meta
+      property="og:description"
+      content="Reflections on 2025."
+    />
+    <meta
+      property="og:url"
+      content="https://ariiellus.eth.limo/essays/reflectionson2025.html"
+    />
+    <meta property="og:site_name" content="Ariiellus Essays" />
+    <meta property="og:image" content="https://ariiellus.eth.limo/images/Fuffle1405.png" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Reflections on 2025 | Ariiellus" />
+    <meta
+      name="twitter:description"
+      content="Reflections on 2025."
+    />
+    <meta name="twitter:creator" content="@Ariiellus" />
+    <meta name="twitter:image" content="https://ariiellus.eth.limo/images/Fuffle1405.png" />
+
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../general/portfolio.html" class="nav-link">Portfolio</a>
+        <a href="../general/writings.html" class="nav-link">Writings</a>
+        <!-- Color mode switch -->
+        <div id="color-mode-switch">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+          </svg>
+          <input type="checkbox" id="switch" />
+          <label for="switch">Dark Mode Toggle</label>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+          </svg>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <p><a href="../general/essays.html">Back to essays</a></p>
+      <!-- YOUR STUFF HERE -->
+       <h2>Reflections on 2025</h2>
+       <p class="date">28 December 2025</p>
+       <hr>
+       <p>
+        As we approach the end of 2025, I'm taking some time to reflect on the year that was. It was a year of growth, learning, and building. I'm grateful for the opportunities I've had to work on exciting projects and learn from some of the brightest minds in the industry.
+       </p>
+       <p>
+        I'm also looking forward to the year ahead. I'm excited for the opportunities that lie ahead and the challenges that I'll face. I'm confident that I'll be able to learn and grow from the experiences I'll have.
+       </p>
+       <p>
+        Thank you for your support this year. I'm looking forward to working with you in the year ahead.</p>
+    </main>
+    <script>
+      const t=document.getElementById('switch');
+      const s=localStorage.getItem('darkMode');
+      if(s==='1')t.checked=true;
+      t.onchange=()=>localStorage.setItem('darkMode',t.checked?'1':'0');
+    </script>
+  </body>
+</html>

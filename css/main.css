@@ -91,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-heading);
   line-height: 1.25;
   margin-top: 1.2em;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.2em;
   font-weight: 700;
 }
 
@@ -336,6 +336,12 @@ section {
 
 .social-icon:hover {
   transform: scale(1.1);
+}
+
+.date {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
 }
 
 /* Hide dark images in light mode, show light images */

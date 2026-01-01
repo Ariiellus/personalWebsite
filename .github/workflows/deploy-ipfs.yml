@@ -23,6 +23,7 @@ jobs:
         cp -r css deploy/
         cp -r images deploy/
         cp -r general deploy/
+        cp -r essays deploy/
 
     - name: Deploy to IPFS
       env:
