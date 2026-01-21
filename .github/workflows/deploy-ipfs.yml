@@ -19,7 +19,6 @@ jobs:
         # Create deployment directory with static HTML files
         mkdir -p deploy
         cp index.html deploy/
-        cp -r pages deploy/
         cp -r css deploy/
         cp -r images deploy/
         cp -r general deploy/
@@ -47,9 +46,7 @@ jobs:
         ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
           cd $DEPLOY_PATH
           HASH=\$(ipfs add -r . -Q)
-          echo 'New IPFS hash: '\$HASH
           ipfs pin add \$HASH
-          echo 'Pinned: '\$HASH
           ipfs name publish --key=$IPNS_KEY_NAME \$HASH
-          echo 'Updated IPNS with hash: '\$HASH
+          echo 'Updated IPNS with new hash
         "
