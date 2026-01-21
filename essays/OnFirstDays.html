@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- ✏️ EDIT THESE FOR EACH ESSAY -->
+    <title>On First Days | Ariiellus</title>
+    <meta name="description" content="First days bring joy, fear, and curiosity. Whether good or bad, they challenge who we are and force us to grow" />
+    <meta property="og:title" content="On First Days" />
+    <meta property="og:description" content="First days bring joy, fear, and curiosity. Whether good or bad, they challenge who we are and force us to grow" />
+    <meta property="og:url" content="https://ariiellus.eth.limo/essays/OnFirstDays.html" />
+    <meta name="twitter:title" content="On First Days" />
+    <meta name="twitter:description" content="First days bring joy, fear, and curiosity. Whether good or bad, they challenge who we are and force us to grow" />
+
+    <!-- 🔒 SHARED - Don't edit these -->
+    <meta property="og:site_name" content="Ariiellus" />
+    <meta property="og:image" content="https://ariiellus.eth.limo/images/Background.jpeg" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@Ariiellus" />
+    <meta name="twitter:image" content="https://ariiellus.eth.limo/images/Background.jpeg" />
+
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../general/portfolio.html" class="nav-link">Portfolio</a>
+        <a href="../general/writings.html" class="nav-link">Writings</a>
+        <!-- Color mode switch -->
+        <div id="color-mode-switch">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+          </svg>
+          <input type="checkbox" id="switch" />
+          <label for="switch">Dark Mode Toggle</label>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+          </svg>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <p><a href="../general/essays.html">Back to essays</a></p>
+      <!-- YOUR STUFF HERE -->
+      <h2>On First Days</h2>
+      <p class="date">January 21, 2026</p>
+      <hr />
+      <p>I've always been excited for the <em>First Day</em> of something. First days are amazing. They can produce a lot of emotions in you. Happiness, fear, anxiety, joy, interest. A first day makes you clean your room, iron your clothes, cut your hair. It makes you reflect on the future and embrace the present.</p>
+
+      <p>In life, we'll have tens of first days, and it's important you pay attention to the details. How you feel, what you expect, what really happens. Laugh if you want, cry if you feel the need. Everything is allowed.</p>
+
+      <p>On a good first day, you'll meet new people, find a new hobby, taste delicious food, ignite a spark of curiosity in your brain. It could define your entire life if all the variables appear in the right proportions.</p>
+
+      <p>In contrast, a bad first day scares the shit out of you. These will come after you lose someone you love, when a project fails or if you are badly injured. Normally a bad first day challenges the conception of who you are. And it forces you to learn how to heal.</p>
+      
+      <p>Regardless of whether it is a good or bad one, embrace it. Take your time to assimilate their arrival and don't feel bad if they catch you off guard. Because that is another of its components. The spontaneity.</p>
+    </main>
+    <script>
+      const t = document.getElementById("switch");
+      const s = localStorage.getItem("darkMode");
+      if (s === "1") t.checked = true;
+      t.onchange = () =>
+        localStorage.setItem("darkMode", t.checked ? "1" : "0");
+    </script>
+  </body>
+</html>
