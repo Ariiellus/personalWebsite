@@ -4,6 +4,9 @@
    - Dark mode toggle using CSS :has() selector
    - Based on Tailwind styling from Next.js version */
 
+/* ---------- Typography ---------- */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap');
+
 /* ---------- Design tokens (Light mode default) ---------- */
 :root {
   --color-bg: #f9fafb;
@@ -66,7 +69,7 @@ body:has(#switch:checked) {
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Literata', Georgia, 'Times New Roman', serif;
   line-height: 1.6;
   background: var(--color-bg);
   color: var(--color-text);
@@ -88,6 +91,7 @@ a:hover, a:focus {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   color: var(--color-heading);
   line-height: 1.25;
   margin-top: 1.2em;
@@ -159,6 +163,7 @@ main {
 
 .nav-link {
   position: relative;
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   color: var(--color-anchor);
   font-weight: 600;
   padding: 0.25rem 0.5rem;
@@ -339,6 +344,7 @@ section {
 }
 
 .date {
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   font-size: 0.875rem;
   color: var(--color-text-muted);
   font-weight: 400;
