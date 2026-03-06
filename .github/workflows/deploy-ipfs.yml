@@ -14,15 +14,19 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Prepare static files
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20"
+        cache: "npm"
+
+    - name: Install dependencies
       run: |
-        # Create deployment directory with static HTML files
-        mkdir -p deploy
-        cp index.html deploy/
-        cp -r css deploy/
-        cp -r images deploy/
-        cp -r general deploy/
-        cp -r essays deploy/
+        npm ci
+
+    - name: Build site
+      run: |
+        npm run build
 
     - name: Deploy to IPFS
       env:
@@ -40,7 +44,7 @@ jobs:
         ssh-keyscan -p $SSH_PORT -H $IPFS_SERVER_HOST >> ~/.ssh/known_hosts
 
         # Copy static files to server
-        scp -P $SSH_PORT -r deploy/* $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
+        scp -P $SSH_PORT -r dist/* $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
 
         # Deploy to IPFS
         ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
