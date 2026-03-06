@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,7 +29,7 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-links">
-        <a href="../index.html" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Home</a>
         <a href="../general/portfolio.html" class="nav-link">Portfolio</a>
         <a href="../general/writings.html" class="nav-link">Writings</a>
         <!-- Color mode switch -->
@@ -75,7 +77,7 @@
        <p>Marcus Aurelius said: <em>"Get busy with life's purpose."</em> I don't know what it is but I'm sure is not about worrying about what other people think. So, just do the boring thing once for all. Start writing, reading, walking, breathing. I'm missing something? Who cares. <em>C'est la vie</em>.</p>
        <p>Of course I want things for the future. I want a family, great material stuff, play better chess and visit more often the mountains. But what do I want for today? It's a new year. Family prepare coffee. Today I want to be more like a kid. Laugh, play, imagine, believe. Tomorrow I could be an adult again. But today I'm going to be just me.</p>
     </main>
-    <script>
+    <script is:inline>
       const t=document.getElementById('switch');
       const s=localStorage.getItem('darkMode');
       if(s==='1')t.checked=true;

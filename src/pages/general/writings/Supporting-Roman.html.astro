@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,7 +41,7 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-links">
-        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Home</a>
         <a href="../portfolio.html" class="nav-link">Portfolio</a>
         <a href="../writings.html" class="nav-link">Writings</a>
         <!-- Color mode switch -->
@@ -100,8 +102,8 @@
         Roman allowed people to regain their privacy and start over again. Writing code should not be considered a weapon but a freedom of speech. Is a carpenter guilty because one of their hammers was used to commit a crime? What about a fork? Or a pickup truck?
       </p>
       <p>
-        People can be bad. 
-      </br>
+        People can be bad.
+        <br />
         Tools are only tools.
       </p>
       <p>
@@ -111,7 +113,7 @@
         We shouldn't prosecute developers when their code is misused.
       </p>
 </main>
-    <script>
+    <script is:inline>
       const t=document.getElementById('switch');
       const s=localStorage.getItem('darkMode');
       if(s==='1')t.checked=true;
