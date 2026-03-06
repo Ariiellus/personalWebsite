@@ -49,11 +49,37 @@ jobs:
         # Copy static files to server
         scp -P $SSH_PORT -r dist/* $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
 
-        # Deploy to IPFS
+        # Deploy to IPFS and verify IPNS points to the new CID.
         ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
+          set -e
           cd $DEPLOY_PATH
+
           HASH=\$(ipfs add -r . -Q)
           ipfs pin add \$HASH
+
+          IPNS_NAME=\$(ipfs key list -l | awk '\$2 == \"$IPNS_KEY_NAME\" {print \$1}')
+          if [ -z \"\$IPNS_NAME\" ]; then
+            echo 'IPNS key not found on server'
+            exit 1
+          fi
+
           ipfs name publish --key=$IPNS_KEY_NAME \$HASH
-          echo 'Updated IPNS with new hash'
+
+          # Give the local node a few chances to update routing records.
+          attempt=1
+          max_attempts=8
+          sleep_seconds=5
+          while [ \$attempt -le \$max_attempts ]; do
+            RESOLVED=\$(ipfs name resolve /ipns/\$IPNS_NAME 2>/dev/null || true)
+            if [ \"\$RESOLVED\" = \"/ipfs/\$HASH\" ]; then
+              echo \"Verified IPNS -> \$RESOLVED\"
+              exit 0
+            fi
+            echo \"Attempt \$attempt/\$max_attempts: expected /ipfs/\$HASH, got '\$RESOLVED'\" 
+            attempt=\$((attempt + 1))
+            sleep \$sleep_seconds
+          done
+
+          echo 'IPNS verification failed'
+          exit 1
         "
