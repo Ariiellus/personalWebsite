@@ -54,7 +54,8 @@ jobs:
           set -e
           cd $DEPLOY_PATH/releases/$DEPLOY_ID
 
-          HASH=\$(ipfs add -r . -Q --cid-version=1 --raw-leaves)
+          HASH=\$(ipfs add -r . -Q --cid-version=1 --raw-leaves | tail -n 1)
+          TARGET=/ipfs/\$HASH
           ipfs pin add \$HASH
 
           IPNS_NAME=\$(ipfs key list -l | awk '\$2 == \"$IPNS_KEY_NAME\" {print \$1}')
@@ -63,14 +64,14 @@ jobs:
             exit 1
           fi
 
-          ipfs name publish --key=$IPNS_KEY_NAME \$HASH
+          ipfs name publish --key=$IPNS_KEY_NAME \$TARGET
 
           # Verify the local node has the correct record (DHT propagation can take minutes).
           RESOLVED=\$(ipfs name resolve --offline /ipns/\$IPNS_NAME 2>/dev/null || true)
-          if [ \"\$RESOLVED\" = \"/ipfs/\$HASH\" ]; then
+          if [ \"\$RESOLVED\" = \"\$TARGET\" ]; then
             echo \"Verified IPNS -> \$RESOLVED\"
           else
-            echo \"IPNS verification failed: expected /ipfs/\$HASH, got '\$RESOLVED'\"
+            echo \"IPNS verification failed: expected \$TARGET, got '\$RESOLVED'\"
             exit 1
           fi
         "
