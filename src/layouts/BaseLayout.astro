@@ -1,4 +1,6 @@
 ---
+import { relativePath } from '../utils/paths';
+
 interface Props {
   title: string;
   description?: string;
@@ -10,6 +12,7 @@ interface Props {
 const { title, description = '', ogUrl, ogImage = 'https://ariiellus.eth.limo/images/Background.jpeg', ogType = 'website' } = Astro.props;
 const siteUrl = 'https://ariiellus.eth.limo';
 const fullOgUrl = ogUrl ?? `${siteUrl}${Astro.url.pathname}`;
+const path = (target: string) => relativePath(Astro.url.pathname, target);
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -35,15 +38,15 @@ const fullOgUrl = ogUrl ?? `${siteUrl}${Astro.url.pathname}`;
     <meta name="twitter:creator" content="@Ariiellus" />
     <meta name="twitter:image" content={ogImage} />
 
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href={path('/css/main.css')} />
     <slot name="head" />
   </head>
   <body>
     <nav class="navbar">
       <div class="nav-links">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/general/portfolio/" class="nav-link">Portfolio</a>
-        <a href="/general/writings/" class="nav-link">Writings</a>
+        <a href={path('/')} class="nav-link">Home</a>
+        <a href={path('/general/portfolio/')} class="nav-link">Portfolio</a>
+        <a href={path('/general/writings/')} class="nav-link">Writings</a>
         <div id="color-mode-switch">
           <svg
             xmlns="http://www.w3.org/2000/svg"

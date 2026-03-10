@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { relativePath } from '../utils/paths';
+
+const path = (target: string) => relativePath(Astro.url.pathname, target);
 ---
 <BaseLayout
   title="Ariiellus - Low R case researcher"
@@ -14,22 +17,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="profile-grid">
       <div class="profile-photo">
         <img
-          src="/images/Profile.png"
+          src={path('/images/Profile.png')}
           alt="Ariiellus Profile Picture"
           class="profile-img"
         />
         <div class="social-links">
           <a href="https://x.com/Ariiellus" target="_blank" rel="noopener noreferrer">
-            <img src="/images/twitter-light.png" alt="X" class="social-icon" data-logo="twitter" />
-            <img src="/images/twitter-dark.png" alt="X" class="social-icon" data-logo="twitter" />
+            <img src={path('/images/twitter-light.png')} alt="X" class="social-icon" data-logo="twitter" />
+            <img src={path('/images/twitter-dark.png')} alt="X" class="social-icon" data-logo="twitter" />
           </a>
           <a href="https://t.me/Ariiellus" target="_blank" rel="noopener noreferrer">
-            <img src="/images/telegram-light.png" alt="Telegram" class="social-icon" data-logo="telegram" />
-            <img src="/images/telegram-dark.png" alt="Telegram" class="social-icon" data-logo="telegram" />
+            <img src={path('/images/telegram-light.png')} alt="Telegram" class="social-icon" data-logo="telegram" />
+            <img src={path('/images/telegram-dark.png')} alt="Telegram" class="social-icon" data-logo="telegram" />
           </a>
           <a href="https://github.com/ariiellus" target="_blank" rel="noopener noreferrer">
-            <img src="/images/github-light.png" alt="Github" class="social-icon" data-logo="github" />
-            <img src="/images/github-dark.png" alt="Github" class="social-icon" data-logo="github" />
+            <img src={path('/images/github-light.png')} alt="Github" class="social-icon" data-logo="github" />
+            <img src={path('/images/github-dark.png')} alt="Github" class="social-icon" data-logo="github" />
           </a>
         </div>
       </div>
@@ -78,7 +81,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       covering the latests news and developments in the crypto space. Our
       <a href="https://www.lupaweb3.kairosresearch.xyz/subscribe" target="_blank" rel="noopener noreferrer">newsletter</a>
       has reached +500 subscribers during the first year. Occasionally,
-      <a href="/general/writings/" rel="noopener noreferrer">I write blogs</a>
+      <a href={path('/general/writings/')} rel="noopener noreferrer">I write blogs</a>
       about MEV, DeFi and the Ethereum Roadmap.
     </p>
 

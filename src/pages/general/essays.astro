@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { relativePath } from '../../utils/paths';
+
+const path = (target: string) => relativePath(Astro.url.pathname, target);
 ---
 <BaseLayout
   title="Essays | Ariiellus"
@@ -15,8 +18,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   <div class="writing-item">
     <ul>
-      <li><a href="/general/essays/OnReflecting/">On Reflecting</a></li>
-      <li><a href="/general/essays/OnFirstDays/">On First Days</a></li>
+      <li><a href={path('/general/essays/OnReflecting/')}>On Reflecting</a></li>
+      <li><a href={path('/general/essays/OnFirstDays/')}>On First Days</a></li>
     </ul>
   </div>
 

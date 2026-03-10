@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { relativePath } from '../../../utils/paths';
+
+const path = (target: string) => relativePath(Astro.url.pathname, target);
 ---
 <BaseLayout
   title="ESSAY_TITLE | Ariiellus"
@@ -7,7 +10,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   ogUrl="https://ariiellus.eth.limo/general/essays/ESSAY_FILENAME/"
   ogType="article"
 >
-  <p><a href="/general/essays/">Back to essays</a></p>
+  <p><a href={path('/general/essays/')}>Back to essays</a></p>
 
   <h2>Title of the essay</h2>
   <p class="date">Date of the essay</p>

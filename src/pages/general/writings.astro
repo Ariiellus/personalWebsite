@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { relativePath } from '../../utils/paths';
+
+const path = (target: string) => relativePath(Astro.url.pathname, target);
 ---
 <BaseLayout
   title="Writings | Ariiellus"
@@ -9,7 +12,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 >
   <div class="writing-item">
     <p>
-      I started <a href="/general/essays/">writing down my thoughts</a> as a
+      I started <a href={path('/general/essays/')}>writing down my thoughts</a> as a
       medium to increase my clarity in different areas that interest me.
       <br />
       I hope you find them useful.
@@ -57,7 +60,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <h2>Writings</h2>
 
   <div class="writing-item">
-    <h3><a href="/general/writings/Supporting-Roman/">Supporting Roman Storm</a></h3>
+    <h3><a href={path('/general/writings/Supporting-Roman/')}>Supporting Roman Storm</a></h3>
     <p class="writing-meta">🗓️ January 9, 2026</p>
     <p>My support letter to Roman Storm, one of the founders of Tornado Cash.</p>
   </div>
