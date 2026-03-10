@@ -37,24 +37,24 @@ jobs:
         DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         IPNS_KEY_NAME: ${{ secrets.IPNS_KEY_NAME }}
       run: |
+        DEPLOY_ID=${GITHUB_SHA}
+
         # Setup SSH
         mkdir -p ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
         ssh-keyscan -p $SSH_PORT -H $IPFS_SERVER_HOST >> ~/.ssh/known_hosts
 
-        # Clean deploy path to avoid file/dir collisions
-        ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "rm -rf $DEPLOY_PATH/*"
-
-        # Copy dist folder to server
-        scp -P $SSH_PORT -r dist $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/
+        # Create release directory and copy dist folder to server
+        ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "mkdir -p $DEPLOY_PATH/releases/$DEPLOY_ID"
+        scp -P $SSH_PORT -r dist $SSH_USER@$IPFS_SERVER_HOST:$DEPLOY_PATH/releases/$DEPLOY_ID/
 
         # Deploy to IPFS and verify IPNS points to the new CID.
         ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
           set -e
-          cd $DEPLOY_PATH
+          cd $DEPLOY_PATH/releases/$DEPLOY_ID
 
-          HASH=\$(ipfs add -r . -Q)
+          HASH=\$(ipfs add -r . -Q --cid-version=1 --raw-leaves)
           ipfs pin add \$HASH
 
           IPNS_NAME=\$(ipfs key list -l | awk '\$2 == \"$IPNS_KEY_NAME\" {print \$1}')
@@ -65,21 +65,12 @@ jobs:
 
           ipfs name publish --key=$IPNS_KEY_NAME \$HASH
 
-          # Give the local node a few chances to update routing records.
-          attempt=1
-          max_attempts=8
-          sleep_seconds=5
-          while [ \$attempt -le \$max_attempts ]; do
-            RESOLVED=\$(ipfs name resolve /ipns/\$IPNS_NAME 2>/dev/null || true)
-            if [ \"\$RESOLVED\" = \"/ipfs/\$HASH\" ]; then
-              echo \"Verified IPNS -> \$RESOLVED\"
-              exit 0
-            fi
-            echo \"Attempt \$attempt/\$max_attempts: expected /ipfs/\$HASH, got '\$RESOLVED'\" 
-            attempt=\$((attempt + 1))
-            sleep \$sleep_seconds
-          done
-
-          echo 'IPNS verification failed'
-          exit 1
+          # Verify the local node has the correct record (DHT propagation can take minutes).
+          RESOLVED=\$(ipfs name resolve --offline /ipns/\$IPNS_NAME 2>/dev/null || true)
+          if [ \"\$RESOLVED\" = \"/ipfs/\$HASH\" ]; then
+            echo \"Verified IPNS -> \$RESOLVED\"
+          else
+            echo \"IPNS verification failed: expected /ipfs/\$HASH, got '\$RESOLVED'\"
+            exit 1
+          fi
         "
