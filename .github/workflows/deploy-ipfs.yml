@@ -52,7 +52,7 @@ jobs:
         # Deploy to IPFS and verify IPNS points to the new CID.
         ssh -p $SSH_PORT $SSH_USER@$IPFS_SERVER_HOST "
           set -e
-          cd $DEPLOY_PATH/dist
+          cd $DEPLOY_PATH
 
           HASH=\$(ipfs add -r . -Q)
           ipfs pin add \$HASH
