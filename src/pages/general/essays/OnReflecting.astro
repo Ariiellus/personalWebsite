@@ -1,87 +1,20 @@
 ---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- ✏️ EDIT THESE FOR EACH ESSAY -->
-    <title>On Reflecting | Ariiellus</title>
-    <meta name="description" content="Another year goes by. A reflection on cutting off, feeling lost, and choosing to be more like a kid again." />
-    <meta property="og:title" content="On Reflecting" />
-    <meta property="og:description" content="Another year goes by. A reflection on cutting off, feeling lost, and choosing to be more like a kid again." />
-    <meta property="og:url" content="https://ariiellus.eth.limo/general/essays/OnReflecting/" />
-    <meta name="twitter:title" content="On Reflecting" />
-    <meta name="twitter:description" content="Another year goes by. A reflection on cutting off, feeling lost, and choosing to be more like a kid again." />
+<BaseLayout
+  title="On Reflecting | Ariiellus"
+  description="Another year goes by. A reflection on cutting off, feeling lost, and choosing to be more like a kid again."
+  ogUrl="https://ariiellus.eth.limo/general/essays/OnReflecting/"
+  ogType="article"
+>
+  <p><a href="/general/essays/">Back to essays</a></p>
 
-    <!-- 🔒 SHARED - Don't edit these -->
-    <meta property="og:site_name" content="Ariiellus" />
-    <meta property="og:image" content="https://ariiellus.eth.limo/images/Background.jpeg" />
-    <meta property="og:type" content="article" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content="@Ariiellus" />
-    <meta name="twitter:image" content="https://ariiellus.eth.limo/images/Background.jpeg" />
+  <h2>On Reflecting</h2>
+  <p class="date">January 1, 2026</p>
 
-    <link rel="stylesheet" type="text/css" href="../../../css/main.css" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-links">
-        <a href="../../../" class="nav-link">Home</a>
-        <a href="../../portfolio/" class="nav-link">Portfolio</a>
-        <a href="../../writings/" class="nav-link">Writings</a>
-        <!-- Color mode switch -->
-        <div id="color-mode-switch">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-            />
-          </svg>
-          <input type="checkbox" id="switch" />
-          <label for="switch">Dark Mode Toggle</label>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-            />
-          </svg>
-        </div>
-      </div>
-    </nav>
-
-    <main class="container">
-      <p><a href="../">Back to essays</a></p>
-      <!-- YOUR STUFF HERE -->
-       <h2>On Reflecting</h2>
-       <p class="date">January 1, 2026</p>
-       <p>Another year goes by.</p>
-       <p>I don't know if I'm wiser. Or dumb. This year was different. I cut off people, projects, ideas. I felt lost most of the year even knowing what to do. Metrics prove it.</p>
-       <p>Every year, people share their highlights and goals. Most of them aren't even started. Last year everyone was crazy about <em>Atomic Habits</em>. Did they achieve their goals this year? I hope so.</p>
-       <p>Marcus Aurelius said: <em>"Get busy with life's purpose."</em> I don't know what it is but I'm sure is not about worrying about what other people think. So, just do the boring thing once for all. Start writing, reading, walking, breathing. I'm missing something? Who cares. <em>C'est la vie</em>.</p>
-       <p>Of course I want things for the future. I want a family, great material stuff, play better chess and visit more often the mountains. But what do I want for today? It's a new year. Family prepare coffee. Today I want to be more like a kid. Laugh, play, imagine, believe. Tomorrow I could be an adult again. But today I'm going to be just me.</p>
-    </main>
-    <script is:inline>
-      const t=document.getElementById('switch');
-      const s=localStorage.getItem('darkMode');
-      if(s==='1')t.checked=true;
-      t.onchange=()=>localStorage.setItem('darkMode',t.checked?'1':'0');
-    </script>
-  </body>
-</html>
+  <p>Another year goes by.</p>
+  <p>I don't know if I'm wiser. Or dumb. This year was different. I cut off people, projects, ideas. I felt lost most of the year even knowing what to do. Metrics prove it.</p>
+  <p>Every year, people share their highlights and goals. Most of them aren't even started. Last year everyone was crazy about <em>Atomic Habits</em>. Did they achieve their goals this year? I hope so.</p>
+  <p>Marcus Aurelius said: <em>"Get busy with life's purpose."</em> I don't know what it is but I'm sure is not about worrying about what other people think. So, just do the boring thing once for all. Start writing, reading, walking, breathing. I'm missing something? Who cares. <em>C'est la vie</em>.</p>
+  <p>Of course I want things for the future. I want a family, great material stuff, play better chess and visit more often the mountains. But what do I want for today? It's a new year. Family prepare coffee. Today I want to be more like a kid. Laugh, play, imagine, believe. Tomorrow I could be an adult again. But today I'm going to be just me.</p>
+</BaseLayout>
