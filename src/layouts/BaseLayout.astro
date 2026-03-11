@@ -4,14 +4,14 @@ import { relativePath } from '../utils/paths';
 interface Props {
   title: string;
   description?: string;
-  ogUrl?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
 }
 
-const { title, description = '', ogUrl, ogImage = 'https://ariiellus.eth.limo/images/Background.jpeg', ogType = 'website' } = Astro.props;
-const siteUrl = 'https://ariiellus.eth.limo';
-const fullOgUrl = ogUrl ?? `${siteUrl}${Astro.url.pathname}`;
+const { title, description = '', ogImage = '/images/Background.jpeg', ogType = 'website' } = Astro.props;
+const siteUrl = Astro.site ?? new URL('https://ariiellus.eth.limo');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const fullOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).toString();
 const path = (target: string) => relativePath(Astro.url.pathname, target);
 ---
 <!DOCTYPE html>
@@ -22,13 +22,14 @@ const path = (target: string) => relativePath(Astro.url.pathname, target);
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Ariiellus" />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={fullOgUrl} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Ariiellus" />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={fullOgImage} />
     <meta property="og:type" content={ogType} />
 
     <!-- Twitter Card -->
@@ -36,7 +37,7 @@ const path = (target: string) => relativePath(Astro.url.pathname, target);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:creator" content="@Ariiellus" />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={fullOgImage} />
 
     <link rel="stylesheet" type="text/css" href={path('/css/main.css')} />
     <slot name="head" />
