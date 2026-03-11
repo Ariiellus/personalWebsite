@@ -5,10 +5,11 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  ogImageAlt?: string;
   ogType?: 'website' | 'article';
 }
 
-const { title, description = '', ogImage = '/images/Background.jpeg', ogType = 'website' } = Astro.props;
+const { title, description = '', ogImage = '/images/Background.jpeg', ogImageAlt, ogType = 'website' } = Astro.props;
 const siteUrl = Astro.site ?? new URL('https://ariiellus.eth.limo');
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const fullOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).toString();
@@ -30,6 +31,7 @@ const path = (target: string) => relativePath(Astro.url.pathname, target);
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Ariiellus" />
     <meta property="og:image" content={fullOgImage} />
+    {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
     <meta property="og:type" content={ogType} />
 
     <!-- Twitter Card -->
